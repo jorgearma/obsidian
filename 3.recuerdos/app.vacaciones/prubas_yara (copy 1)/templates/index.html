@@ -1,0 +1,64 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.2/socket.io.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Yaral de chaman</h1>
+    </header>
+    <div id="chat">
+        <div id="message-container"></div>
+    </div>
+    <form id="message-form">
+        <input type="text" id="message-input" autocomplete="off">
+        <button type="submit">Enviar mensaje</button>
+    </form>
+    <section id="explicacion">
+        <article class="pasos">
+            <h2> explicacion</h2>
+            <p>  puedes hacer preguntas como quien eres? donde vives? <br> que estas haciendo ?
+                el chat simulara una conversacion, con un personaje ficticio yaral... <br>
+                Yaral respondera de acorde a su personalidad  <br>
+
+
+
+            </p>
+
+        <article class="beta">
+            <h2> objetivo </h2>
+            <p> poder simular convesaciones reales en video juegos</p>
+
+        </article>
+
+        </article>
+    </section>
+    <footer>
+        the zazys company © 2023
+    </footer>
+
+    <script>
+        var socket = io();
+
+        socket.on('message', function(msg) {
+            var chat = document.getElementById('chat');
+            var message = document.createElement('p');
+            message.classList.add('output-text');
+            message.innerText = msg;
+            chat.appendChild(message);
+        });
+
+        document.getElementById('message-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var input = document.getElementById('message-input');
+            var msg = input.value;
+            socket.send(msg);
+            input.value = '';
+        });
+    </script>
+</body>
+</html>

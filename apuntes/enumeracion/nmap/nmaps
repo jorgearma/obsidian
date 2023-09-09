@@ -1,0 +1,44 @@
+            primeros tres pasos en la enumeracion
+
+         <><><>diferentes scaneaos<><><>                                      ////Enumerate targets
+                                                                               ///Discover live hosts
+                                                                               ///Reverse-DNS lookup
+ARP Scan	            sudo nmap -PR -sn MACHINE_IP/24
+ICMP Echo Scan	            sudo nmap -PE -sn MACHINE_IP/24
+ICMP Timestamp Scan	    sudo nmap -PP -sn MACHINE_IP/24
+ICMP Address Mask Scan	    sudo nmap -PM -sn MACHINE_IP/24
+TCP SYN Ping Scan	    sudo nmap -PS22,80,443 -sn MACHINE_IP/30
+TCP ACK Ping Scan	    sudo nmap -PA22,80,443 -sn MACHINE_IP/30
+UDP Ping Scan	            sudo nmap -PU53,161,162 -sn MACHINE_IP/30
+
+
+<><><><><><>Tipo de exploración de puertos<><><>	   Comando de ejemplo                    Fragmentar datos de IP en 16 bytes -ff 
+										                                            8 bytes  -f
+Análisis nulo de TCP	             		sudo nmap -sN 10.10.192.87
+Escaneo TCP FIN	                     	 	sudo nmap -sF 10.10.192.87
+Escaneo de Navidad TCP	         		sudo nmap -sX 10.10.192.87
+Escaneo TCP Maimón				sudo nmap -sM 10.10.192.87
+Escaneo de reconocimiento de TCP		sudo nmap -sA 10.10.192.87
+Escaneo de ventana TCP				sudo nmap -sW 10.10.192.87
+Escaneo TCP personalizado			sudo nmap --scanflags URGACKPSHRSTSYNFIN 10.10.192.87
+IP de origen suplantada				sudo nmap -S SPOOFED_IP 10.10.192.87
+Dirección MAC falsificada			--spoof-mac SPOOFED_MAC
+Escaneo de señuelo				nmap -D DECOY_IP,ME 10.10.192.87
+Escaneo inactivo (Zombie)			sudo nmap -sI ZOMBIE_IP 10.10.192.87
+
+<><><><><><><><><><><><><><><><><><><><><><><><><>
+<><><><><><><><><><><><><><><><><><><><><><><><><>
+
+   sudo nmap -p- -sS -sV
+
+-p-            : Esta bandera busca todos los puertos TCP que van desde 0-65535
+--min-rate...  : Esto se usa para especificar el número mínimo de paquetes que Nmap debe
+-sV            :intenta determinar la versión del servicio que se ejecuta en un puerto
+  
+   nmap -p- --min-rate=1000 -sV {IP_objetivo}
+                  
+   sudo nmap -sC -sV -Pn -p- -n -Ss -min-rate=5000 10.10.10.40 -oN blue_scaneo       #muy intrusivo 
+   sudo nmap -sC -sV -Pn -p- -n  -min-rate=5000 10.10.219.137
+   sudo nmap --script vuln -p445 10.10.143.246                 		             #buscar volnavilidades publicas	        
+   nmap --script http-enum -p80 10.10.10.68                 			     #fuzin
+                             

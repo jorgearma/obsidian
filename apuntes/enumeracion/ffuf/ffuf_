@@ -1,0 +1,8 @@
+
+<><><><>descubrir nuevos subdominios<><><><><>
+
+     ffuf -w /usr/share/wordlists/dirbuster/subdomains-top1million-5000.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.60.12 -fs 2395 
+
+<><><><>descubrir nuevo directorios><><><><><>
+
+     ffuf -w /usr/share/wordlists/dirbuster/common.txt -u http://10.10.79.5/FUZZ

@@ -1,0 +1,44 @@
+some useful Find commands are:
+
+- find . -name flag1.txt  		find file flag1.txt in the current  directory
+- find /home -name flag1.txt  		find flag1.txt in /home directory
+- find / -type d -name config  		find directory named config under /
+- find / -type f -perm 0777		find file with the 777 permission (file readable, writable, executable by all users)
+- find / -perm a=x 			find executable files
+- find /home -name frank		find files for user frank under /home
+- find / -mtime 10			find files that were modified in last 10 days.
+- find / -atime 10			find files that were accessed in last 10 days.
+- find / -cmin 60 			find files that were changed in last 60 minutes.
+- find / -amin 60 			find files that were accessed in last 60 minutes.
+- find / -size 50M			find the files having size 50 MB.
+- find / -size +50M			find files having size more than 50MB.
+- find / -size -50MB 			files having size less that 50MB.
+
+To avoid errors like “no such file or dir” or “permission denied error” and some similar kind of error that creates hard to read the output, we need to specify type as file with -type f and redirect the standard errors with 2>/dev/null
+ 
+ -find / -size -50M -type f 2>/dev/null
+ 
+Find the files/folders in the worlds-writable folders?
+=> There are 3 ways to get world-writable folders:
+
+ 	i. find / -writable -type d 2>/dev/null
+	ii. find / -perm -222 -type d 2>/dev/null
+ 	iii. find / -perm -o w -type d 2>/dev/null
+ 
+Note: world-writable folders/files are the files/folders that can be easily readable, modified and potentially can be compromised by any user, also it is a script or program that are written incorrectly and can be the cause of larger compromise of the system integrity.
+
+Find the world-executable folders?
+
+	# find / -perm -111 -type d 2>/dev/null
+
+ Explanation: finding from dir-/, having permission of ‘executable’ of type ‘directory’ and whatever the errors or warning will be redirected to ‘/dev/null’.
+ 
+	# find / -perm -u=s -type f 2>/dev/null 
+
+ — Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
+NOTE: Specific File-permission-SUID: suppose user Raj logged in to the machine and wanted to run file1 which is actually owned by other user Om, then Raj (currently logged in user) can’t run file1(Om’s owned file).
+
+Find development tools and support languages?
+ # find / -name python*
+ # find / -name perl*
+ # find / -name gcc*

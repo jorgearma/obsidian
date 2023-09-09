@@ -1,0 +1,17 @@
+
+
+archivo=$(find / -name "user.txt" | xargs cat)
+archivo=$(find / -name "root.txt" | xargs cat)
+
+
+find \-type f 2>/dev/null | grep config
+
+<><><><><><><><><><><>
+😜️busqueda de archivos<>
+<><><><><><><><><><><>
+
+archivo=$(find / -name "user.txt" | xargs cat)    		pone todo lo que hay dentro 
+
+archivo=$(find . -name "shell.php" | xargs grep CHANGE)  	pone lo que  disciminas 
+
+archivo=$(find / -name "root.txt" -print) 2>/dev/null) 		busca el archivo  y muestra la ruta 

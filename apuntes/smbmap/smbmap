@@ -1,0 +1,4 @@
+smbmap -H 10.10.219.137                                      buscar recurso compartido 
+
+smbclient //10.10.219.137/anonymous                          inica secion 	
+smbclient -U user '//10.10.219.137/milesdyson'

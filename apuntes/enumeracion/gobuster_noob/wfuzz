@@ -1,0 +1,14 @@
+ 
+         <><><><><>invetigar mas <><><><><><><><><><
+ 
+ wfuzz -c --hc=404 --hh=854 -t 200 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt "http://api-prod.horizontall.htb/admin/FUZZ"
+ 
+ 
+ -c: Establece el color en la salida.
+--hc=404: Ignora las respuestas que tienen un código de estado HTTP de 404 (no encontrado).
+--hh=854: Ignora las respuestas que tienen una longitud de contenido HTTP de 854 bytes.
+-t 200: Utiliza 200 hilos para la búsqueda. Cuantos más hilos, más rápida será la búsqueda, pero también se puede saturar el servidor web objetivo. Por lo tanto, debes elegir un número de hilos adecuado según la capacidad del servidor y la velocidad de tu conexión a internet.
+-w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt: Especifica la ruta del archivo de lista de palabras que se utilizará en la búsqueda. En este caso, se está utilizando la lista de palabras de directorios de DirBuster.
+"http://api-prod.horizontall.htb/admin/FUZZ": Especifica la URL objetivo, donde "FUZZ" es la palabra que se reemplazará por cada entrada en la lista de palabras. De esta forma, Wfuzz probará todas las posibles rutas de directorios en la URL objetivo.
+En resumen, el comando de Wfuzz se está utilizando para encontrar rutas de directorios en la URL http://api-prod.horizontall.htb/admin/ mediante la fuerza bruta de una lista de palabras. El comando ignora las respuestas con un código de estado HTTP de 404 y una longitud de contenido HTTP de 854 bytes, utilizando 200 hilos para acelerar la búsqueda.
+ 

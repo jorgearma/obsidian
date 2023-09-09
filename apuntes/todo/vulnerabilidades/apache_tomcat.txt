@@ -1,0 +1,9 @@
+Nota IMPORTANTE:
+
+Cada vez que vea que "Apache Tomcat" se está ejecutando en un puerto, CASI siempre puede seguir la misma ruta.
+
+Asegúrese de revisar los directorios web "/manager" y /manager/html", debería aparecer una ventana emergente de inicio de sesión.
+Intente usar la fuerza bruta o busque la contraseña. Una vez que inicie sesión correctamente, llegará a la página "Administrador de aplicaciones web", desplácese hacia abajo hasta "Implementar" y verá una opción para cargar un archivo de guerra.
+Luego debe crear un archivo de guerra preferiblemente con msfvenom, cargarlo y hacer clic en implementar.
+Escuche en un puerto usando netcat
+¡Haz clic en el archivo de guerra cargado y obtendrás un caparazón!

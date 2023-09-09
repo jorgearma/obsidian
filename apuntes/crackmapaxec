@@ -1,0 +1,6 @@
+
+
+          son listas de posbles users y paswords 
+crackmapexec smb 10.10.10.149 -u users -p paswords 
+
+
