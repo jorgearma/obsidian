@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "0177241318bab090",
+    "type": "split",
+    "children": [
+      {
+        "id": "c62320d0bf239164",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2a6d579aa7cc74ad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "algoritmos/de busqueda/busqueda binaria.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "35db560b9d27579d",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.5"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "53596ee938c72b0b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3c638d9724ce18f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "65648c7870ef6c90",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "51b4cd469bb747b3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9bd9eb6ba6dc8111",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "9725ac3df8109034",
+    "type": "split",
+    "children": [
+      {
+        "id": "48162fc7a6bb3623",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e8ec14bc7b40f0a7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "algoritmos/de busqueda/busqueda binaria.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c01da4e1fcf46d13",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "algoritmos/de busqueda/busqueda binaria.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6b0807ff47de35b1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "dc7455d755a35d9a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "algoritmos/de busqueda/busqueda binaria.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "35db560b9d27579d",
+  "lastOpenFiles": [
+    "git/comandos/Agregar al Staging Area.md",
+    "javascript/fundamentos/estructura de datos/Listas enlazadas (Linked Lists).md",
+    "algoritmos/de busqueda/busqueda binaria.md",
+    "algoritmos/de ordenamiento/marge sort.md",
+    "algoritmos/de ordenamiento/insertionSort.md",
+    "algoritmos/de busqueda/busqueda lineal.md",
+    "algoritmos/de ordenamiento/quicksort.md",
+    "node.js/bases de datos/mongoDB.md",
+    "node.js/cheat_page/proyecto empezado.md",
+    "node.js/cheat_page/iniciar proyecto.md",
+    "javascript/importante/metodos.md",
+    "javascript/fundamentos/estructura de datos/objetos.md",
+    "node.js/express/middlewares/verifytoken.md",
+    "node.js/express/middlewares/Middleware teoria.md",
+    "node.js/express/middlewares",
+    "node.js/express/ejs/templete engine.md",
+    "node.js/express/ejs/partials.md",
+    "node.js/express/peticiones http.md",
+    "node.js/express/router.md",
+    "git/comandos/marge.md",
+    "git/comandos/commit.md",
+    "git/comandos/branch.md",
+    "git/comandos/checkout.md",
+    "git/comandos/Comprobar cambios.md",
+    "git/comandos/Comparar cambios.md",
+    "git/fundamentos/instalacion.md",
+    "node.js/modules node/nodemon.md",
+    "Untitled.canvas",
+    "node.js/bases de datos",
+    "node.js/cheat_page",
+    "Untitled 1.canvas",
+    "node.js/express/ejs",
+    "imagenes/images/29-8 1.png",
+    "imagenes/images/29-6.png",
+    "imagenes/images/29-3.png",
+    "imagenes/images/Pasted image 20221217091954.png",
+    "imagenes/images/Pasted image 20221217085828.png",
+    "imagenes/images/pasted image 0 4.png",
+    "imagenes/images/pasted image 0 3.png",
+    "imagenes/images/Pasted image 20221217090314.png",
+    "node.js/express",
+    "node.js/npm",
+    "node.js/modules node",
+    "node.js",
+    "algoritmos/de ordenamiento",
+    "algoritmos/de busqueda",
+    "imagenes/webp.png",
+    "imagenes/webp.jpg",
+    "conceptos_comunes/Untitled.canvas"
+  ]
+}
