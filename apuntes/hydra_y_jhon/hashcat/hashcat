@@ -1,4 +1,0 @@
-
-hay que buscar el formato se define despues de  la m
-
-sudo hashcat -a 0 -m 400 has.txt /usr/share/wordlists/rockyou.txt 

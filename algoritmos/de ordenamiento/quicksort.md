@@ -24,3 +24,37 @@ const numerosss = [5, 5, 5, 2, 8, 1, 5, 1, 1, 10, 50, 3, 30, 7, 9];
 console.log(quick(numerosss));
 
 ```
+
+
+una forma mas eficiente 
+
+```js
+const quickSort = (array) => {
+    if (array.length <= 1) {
+        return array;
+    }
+
+    const [pivote, ...resto] = array;
+    const izquierda = [];
+    const derecha = [];
+
+    for (const elemento of resto) {
+        elemento < pivote ? izquierda.push(elemento) : derecha.push(elemento);
+    }
+
+    return [...quickSort(izquierda), pivote, ...quickSort(derecha)];
+};
+
+const numerosAleatorios = [];
+for (let i = 0; i < 10; i++) {
+    let numero = Math.floor(Math.random() * 10);
+    numerosAleatorios.push(numero);
+}
+console.log("Numeros aleatorios:", numerosAleatorios);
+
+const numerosOrdenados = quickSort(numerosAleatorios);
+console.log("Numeros ordenados:", numerosOrdenados);
+
+```
+
+

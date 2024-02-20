@@ -1,9 +1,0 @@
-Protocolo	Puerto TCP	Aplicaciones			Seguridad de datos
-
-
-FTP		21		Transferencia de archivos	Borrar texto
-HTTP		80		World Wide Web	Borrar texto
-IMAP		143		Correo electrónico (MDA)	Borrar texto
-POP3		110		Correo electrónico (MDA)	Borrar texto
-SMTP		25		Correo electrónico (MTA)	Borrar texto
-Telnet		23		Acceso remoto	Borrar texto
