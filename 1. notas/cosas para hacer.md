@@ -1,6 +1,6 @@
 .idear sistema para practicar con el DOM
 
-.dominar JSON
+<mark style="background: #FFF3A3A6;">.dominar JSON</mark>
 
 .continuar con el sistema de algoritmos 
 

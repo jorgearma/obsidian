@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2. javascript/estructura de datos/teoria.md",
-                "mode": "preview",
+                "file": "git/comandos/commit.md",
+                "mode": "source",
                 "backlinks": false,
                 "source": false
               }
@@ -26,15 +26,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML/resumen trickpage.md",
+                "file": "haking/cheat.page.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -63,7 +62,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nodemon",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTML/resumen trickpage.md",
+                "file": "git/comandos/commit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTML/resumen trickpage.md",
+                "file": "git/comandos/commit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML/resumen trickpage.md"
+                "file": "git/comandos/commit.md"
               }
             }
           },
@@ -173,45 +172,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f4ac88e6062df093",
+  "active": "1299f58ed315e162",
   "lastOpenFiles": [
-    "HTML/tablas.md",
+    "git/comandos/branch.md",
+    "git/comandos/Agregar al Staging Area.md",
+    "git/comandos/marge.md",
+    "git/comandos/log.md",
+    "git/comandos/Comprobar cambios.md",
+    "git/comandos/Comparar cambios.md",
+    "git/comandos/commit.md",
+    "git/comandos/checkout.md",
+    "git/fundamentos/instalacion.md",
+    "haking/transferencia de archivos.md",
+    "Untitled.canvas",
+    "haking/cheat.page.md",
+    "haking/2. gobuster.md",
     "inicio.html.md",
-    "HTML/fundamentos/video y audio.md",
-    "HTML/fundamentos/textos.md",
-    "HTML/fundamentos/meta.md",
-    "HTML/fundamentos/listas.md",
-    "HTML/fundamentos/img.md",
-    "HTML/fundamentos/iframe.md",
-    "HTML/fundamentos/formularios.md",
-    "HTML/fundamentos/etiquetas extra.md",
-    "HTML/fundamentos/enlaces.md",
-    "HTML/fundamentos/contenedores.md",
-    "3. node.js/express/router.md",
-    "3. node.js/express/peticiones http.md",
-    "3. node.js/express/axios.md",
-    "3. node.js/cheat_page/iniciar proyecto.md",
-    "3. node.js/cheat_page/proyecto empezado.md",
-    "css/grid/grid fundamentos.md",
-    "css/grid/area grid.md",
-    "css/grid/aliniacion de elemntos.md",
-    "2. javascript/apis-fetch/json.md",
-    "2. javascript/apis-fetch/fetch.md",
-    "2. javascript/metodos/strings metodos.md",
-    "2. javascript/metodos/metodos.md",
-    "2. javascript/metodos/numeros metodos.md",
-    "2. javascript/fundamentos/calls back.md",
+    "haking/escalada de privilegios/sudo -l.md",
+    "haking/escalada de privilegios/enumerar puertos internos.md",
+    "haking/escalada de privilegios/buscar credenciales.md",
+    "haking/burnp suite/sniper atack.md",
+    "haking/1. nmap.md",
+    "haking/FTP-TCP 21.md",
+    "haking/hash.md",
+    "haking/notas.md",
+    "haking/probar.md",
+    "haking/tareas.md",
+    "bases de datos/mySQL.md",
+    "Python/Generico/Conceptos B├ísicos/Funciones.md",
+    "Python/Gestión de Ficheros/With open().md",
+    "haking/burnp suite",
+    "haking/recursos",
+    "haking/escalada de privilegios",
+    "haking/FTP",
+    "haking",
     "2. javascript/metodos",
-    "Untitled",
     "apuntes-haking/SQL/sqlmap/slq injections/sql injection noob",
     "apuntes-haking/todo/vulnerabilidades/apache_tomcat.txt",
     "apuntes-haking/enumeracion/nmap/scripts_explicacion",
     "apuntes-haking/enumeracion/nmap/nmaps",
-    "apuntes-haking/enumeracion/nmap/nmap_noob",
-    "apuntes-haking/enumeracion/nmap/nmap fuerza bruta",
-    "apuntes-haking/hydra_y_jhon/jon/crackpass zip",
-    "apuntes-haking/hydra_y_jhon/jon/claves hasx",
-    "Untitled.canvas",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",

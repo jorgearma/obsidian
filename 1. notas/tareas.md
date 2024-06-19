@@ -7,6 +7,8 @@ empezar a estudiar la documentacion de node
 hacer rutina con el DOM
 
 
+hacer lista de coceptos basicos que hay que dominar de java script y node js  
+
 
 
 
