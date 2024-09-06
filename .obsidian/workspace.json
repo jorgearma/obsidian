@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notas.md",
+                "file": "git/comandos/log.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notas.md",
+                "file": "git/comandos/log.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notas.md",
+                "file": "git/comandos/log.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notas.md"
+                "file": "git/comandos/log.md"
               }
             }
           },
@@ -174,8 +174,17 @@
   },
   "active": "1299f58ed315e162",
   "lastOpenFiles": [
-    "Python/pandas/series y data frame.md",
+    "git/comandos/Comprobar cambios.md",
+    "git/comandos/Comparar cambios.md",
+    "git/comandos/commit.md",
+    "git/comandos/checkout.md",
+    "git/comandos/branch.md",
+    "git/comandos/Agregar al Staging Area.md",
+    "git/fundamentos/instalacion.md",
+    "git/comandos/marge.md",
+    "git/comandos/log.md",
     "notas.md",
+    "Python/pandas/series y data frame.md",
     "bases de datos/sql/comandos sql.md",
     "bases de datos/sql/operadores.md",
     "bases de datos/sql/teoria sql.md",
@@ -192,15 +201,6 @@
     "1. notas/tareas.md",
     "1. notas/para estudiar.md",
     "1. notas/para el dia diario.md",
-    "1. notas/ingles estudiar.md",
-    "1. notas/importante.md",
-    "1. notas/ejersicios.md",
-    "1. notas/cosas para hacer.md",
-    "donker/Docker y sql.md",
-    "3. node.js/promesas.md",
-    "3. node.js/npm/npm comandos modulos.md",
-    "3. node.js/npm/npm comandos comunes.md",
-    "algoritmos/de ordenamiento/quicksort.md",
     "bases de datos/sql",
     "Untitled.canvas",
     "donker",
