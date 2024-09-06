@@ -1,0 +1,6 @@
+
+python scriting 
+
+mysql
+
+mongoDB

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "git/comandos/commit.md",
+                "file": "notas.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,12 +21,12 @@
             }
           },
           {
-            "id": "f4ac88e6062df093",
+            "id": "fc9582077bde9870",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "haking/cheat.page.md",
+                "file": "notas.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.5
+    "width": 200
   },
   "right": {
     "id": "9725ac3df8109034",
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git/comandos/commit.md",
+                "file": "notas.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "git/comandos/commit.md",
+                "file": "notas.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "git/comandos/commit.md"
+                "file": "notas.md"
               }
             }
           },
@@ -174,33 +174,36 @@
   },
   "active": "1299f58ed315e162",
   "lastOpenFiles": [
-    "git/comandos/branch.md",
-    "git/comandos/Agregar al Staging Area.md",
-    "git/comandos/marge.md",
-    "git/comandos/log.md",
-    "git/comandos/Comprobar cambios.md",
-    "git/comandos/Comparar cambios.md",
-    "git/comandos/commit.md",
-    "git/comandos/checkout.md",
-    "git/fundamentos/instalacion.md",
-    "haking/transferencia de archivos.md",
-    "Untitled.canvas",
-    "haking/cheat.page.md",
-    "haking/2. gobuster.md",
-    "inicio.html.md",
-    "haking/escalada de privilegios/sudo -l.md",
-    "haking/escalada de privilegios/enumerar puertos internos.md",
-    "haking/escalada de privilegios/buscar credenciales.md",
-    "haking/burnp suite/sniper atack.md",
-    "haking/1. nmap.md",
-    "haking/FTP-TCP 21.md",
-    "haking/hash.md",
-    "haking/notas.md",
-    "haking/probar.md",
-    "haking/tareas.md",
+    "Python/pandas/series y data frame.md",
+    "notas.md",
+    "bases de datos/sql/comandos sql.md",
+    "bases de datos/sql/operadores.md",
+    "bases de datos/sql/teoria sql.md",
+    "bases de datos/sql/tipos de datos.md",
     "bases de datos/mySQL.md",
-    "Python/Generico/Conceptos B├ísicos/Funciones.md",
-    "Python/Gestión de Ficheros/With open().md",
+    "linux/descomprimir/zip.md",
+    "Python/pandas",
+    "3. node.js/streams.md",
+    "2. javascript/BOM/window.md",
+    "2. javascript/BOM/alert.md",
+    "2. javascript/BOM/location.md",
+    "2. javascript/BOM/navigator.md",
+    "3. node.js/globals.md",
+    "1. notas/tareas.md",
+    "1. notas/para estudiar.md",
+    "1. notas/para el dia diario.md",
+    "1. notas/ingles estudiar.md",
+    "1. notas/importante.md",
+    "1. notas/ejersicios.md",
+    "1. notas/cosas para hacer.md",
+    "donker/Docker y sql.md",
+    "3. node.js/promesas.md",
+    "3. node.js/npm/npm comandos modulos.md",
+    "3. node.js/npm/npm comandos comunes.md",
+    "algoritmos/de ordenamiento/quicksort.md",
+    "bases de datos/sql",
+    "Untitled.canvas",
+    "donker",
     "haking/burnp suite",
     "haking/recursos",
     "haking/escalada de privilegios",
@@ -208,9 +211,6 @@
     "haking",
     "2. javascript/metodos",
     "apuntes-haking/SQL/sqlmap/slq injections/sql injection noob",
-    "apuntes-haking/todo/vulnerabilidades/apache_tomcat.txt",
-    "apuntes-haking/enumeracion/nmap/scripts_explicacion",
-    "apuntes-haking/enumeracion/nmap/nmaps",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",
