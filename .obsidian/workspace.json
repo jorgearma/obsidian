@@ -13,7 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "git/comandos/log.md",
+                "file": "notas.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "08fd194aaeef8569",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/pandas/estrutura.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -33,7 +46,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -83,7 +97,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 203.5
   },
   "right": {
     "id": "9725ac3df8109034",
@@ -99,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git/comandos/log.md",
+                "file": "Python/pandas/estrutura.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "git/comandos/log.md",
+                "file": "Python/pandas/estrutura.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "git/comandos/log.md"
+                "file": "Python/pandas/estrutura.md"
               }
             }
           },
@@ -172,37 +186,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1299f58ed315e162",
+  "active": "08fd194aaeef8569",
   "lastOpenFiles": [
-    "git/comandos/Comprobar cambios.md",
-    "git/comandos/Comparar cambios.md",
-    "git/comandos/commit.md",
-    "git/comandos/checkout.md",
-    "git/comandos/branch.md",
-    "git/comandos/Agregar al Staging Area.md",
-    "git/fundamentos/instalacion.md",
-    "git/comandos/marge.md",
-    "git/comandos/log.md",
+    "Python/pandas/matematicas estadistica.md",
+    "Python/pandas/pasos.md",
+    "Python/pandas/series decriptivo.md",
     "notas.md",
-    "Python/pandas/series y data frame.md",
+    "Python/pandas/dataframe/dataframe.md",
+    "Python/pandas/estrutura.md",
+    "Python/pandas/importante.md",
+    "Python/pandas/basico pandas.md",
+    "Python/pandas/dataframe/atributos dataframe.md",
+    "-----.md",
+    "finco seminario.md",
+    "inicio.html.md",
+    "Untitled.canvas",
+    "1. notas/estadisticas futbol.md",
+    "1. notas/cosas para hacer.md",
+    "Python/pandas/dataframe",
     "bases de datos/sql/comandos sql.md",
     "bases de datos/sql/operadores.md",
+    "Python/POO/Constructor.md",
+    "Python/POO/Atributos, Métodos y Self.md",
+    "Python/Generico/Expresiones Regulares en Python.md",
+    "Python/Generico/Convertir .PY a .EXE.md",
+    "Python/API/Librería VirusTotal Apis.md",
+    "Python/API/Conectar Python con AbuseIP.md",
+    "Python/Gestión de Ficheros/With open().md",
     "bases de datos/sql/teoria sql.md",
-    "bases de datos/sql/tipos de datos.md",
     "bases de datos/mySQL.md",
-    "linux/descomprimir/zip.md",
+    "Python/Generico/Conceptos B├ísicos/Textos.md",
     "Python/pandas",
-    "3. node.js/streams.md",
-    "2. javascript/BOM/window.md",
-    "2. javascript/BOM/alert.md",
-    "2. javascript/BOM/location.md",
-    "2. javascript/BOM/navigator.md",
-    "3. node.js/globals.md",
-    "1. notas/tareas.md",
-    "1. notas/para estudiar.md",
-    "1. notas/para el dia diario.md",
     "bases de datos/sql",
-    "Untitled.canvas",
     "donker",
     "haking/burnp suite",
     "haking/recursos",
@@ -210,7 +225,6 @@
     "haking/FTP",
     "haking",
     "2. javascript/metodos",
-    "apuntes-haking/SQL/sqlmap/slq injections/sql injection noob",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",

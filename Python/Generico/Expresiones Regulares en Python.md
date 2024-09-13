@@ -43,7 +43,8 @@ Donde vemos que en este caso se repite dos veces:
 ![[Pasted image 20230119101754.png]]
 ## OBTENER FILA ENTERA AL ENCONTRAR UN PATRRÓN (SIMILAR A GREP)
 Podemos obtener algo parecido al grep de Linux, donde podemos obtener la línea entera si nos encuentra un patrón, por ejemplo sería de esta manera:
-```
+```python
+
 import re
 
 nombres = ["Mario Álvarez", "Pepe Pepón", "Juan Álvarez"]

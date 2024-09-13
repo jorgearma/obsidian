@@ -11,12 +11,13 @@ buscar mas informacion sobre infomtion_schema
 
 # matematicas necesarias para analys data 
 
-### 1. **Conceptos Básicos de Estadística**
+buscar concepto mas avanzados de estadistica 
+meidas de asociacion 
+procesar los datos como null o valores faltantes
+que significa y para que sirve escalar
 
-- **Media, mediana y moda:** Medidas de tendencia central.
-- **Varianza y desviación estándar:** Medidas de dispersión.
-- **Percentiles y cuartiles:** Dividen un conjunto de datos en partes iguales.
+Definir variables de control
 
-
+matplotlib.pyplot estudiarlo
 atributos del data frame
 operaciones de agregacion y esatdisticas
