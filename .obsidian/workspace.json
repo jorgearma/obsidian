@@ -17,7 +17,24 @@
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "notas"
+            }
+          },
+          {
+            "id": "d70d66a68db60a7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/POO/Constructor.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Constructor"
             }
           },
           {
@@ -26,11 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/pandas/estrutura.md",
+                "file": "bases de datos/sql/tipos de datos.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "tipos de datos"
             }
           },
           {
@@ -39,11 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notas.md",
+                "file": "bases de datos/sql/comandos sql.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "comandos sql"
             }
           }
         ],
@@ -67,7 +88,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -82,7 +105,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -90,7 +115,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -113,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/pandas/estrutura.md",
+                "file": "Python/API/Conectar Python con AbuseIP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +148,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Conectar Python con AbuseIP"
             }
           },
           {
@@ -130,10 +159,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Python/pandas/estrutura.md",
+                "file": "Python/API/Conectar Python con AbuseIP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Conectar Python con AbuseIP"
             }
           },
           {
@@ -144,7 +175,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -153,8 +186,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/pandas/estrutura.md"
-              }
+                "file": "Python/API/Conectar Python con AbuseIP.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Conectar Python con AbuseIP"
             }
           },
           {
@@ -166,7 +201,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ]
@@ -186,36 +223,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "08fd194aaeef8569",
+  "active": "d70d66a68db60a7b",
   "lastOpenFiles": [
-    "Python/pandas/matematicas estadistica.md",
-    "Python/pandas/pasos.md",
-    "Python/pandas/series decriptivo.md",
-    "notas.md",
-    "Python/pandas/dataframe/dataframe.md",
-    "Python/pandas/estrutura.md",
-    "Python/pandas/importante.md",
-    "Python/pandas/basico pandas.md",
-    "Python/pandas/dataframe/atributos dataframe.md",
-    "-----.md",
-    "finco seminario.md",
-    "inicio.html.md",
-    "Untitled.canvas",
-    "1. notas/estadisticas futbol.md",
-    "1. notas/cosas para hacer.md",
-    "Python/pandas/dataframe",
-    "bases de datos/sql/comandos sql.md",
-    "bases de datos/sql/operadores.md",
-    "Python/POO/Constructor.md",
     "Python/POO/Atributos, Métodos y Self.md",
-    "Python/Generico/Expresiones Regulares en Python.md",
-    "Python/Generico/Convertir .PY a .EXE.md",
-    "Python/API/Librería VirusTotal Apis.md",
-    "Python/API/Conectar Python con AbuseIP.md",
-    "Python/Gestión de Ficheros/With open().md",
+    "Python/POO/Constructor.md",
+    "Python/pruebas unitarias/patch.md",
+    "Python/pruebas unitarias/mocks.md",
+    "Python/pruebas unitarias/setUp.md",
+    "Python/pruebas unitarias/teoria.md",
+    "Python/Untitled.md",
+    "Python/pruebas unitarias",
+    "panchi-bot/Untitled.md",
+    "git/comandos/branch.md",
+    "panchi-bot",
+    "git/comandos/checkout.md",
+    "git/comandos/Agregar al Staging Area.md",
+    "donker/Docker y sql.md",
+    "bases de datos/sql/tipos de datos.md",
     "bases de datos/sql/teoria sql.md",
+    "bases de datos/sql/operadores.md",
+    "bases de datos/sql/comandos sql.md",
     "bases de datos/mySQL.md",
-    "Python/Generico/Conceptos B├ísicos/Textos.md",
+    "git/fundamentos/instalacion.md",
+    "proyecto-tuli.md",
+    "notas.md",
+    "Python/API/Conectar Python con AbuseIP.md",
+    "Python/pandas/pasos.md",
+    "Python/pandas/matematicas estadistica.md",
+    "Python/pandas/importante.md",
+    "Python/pandas/estrutura.md",
+    "finco seminario.md",
+    "Untitled.canvas",
+    "Python/pandas/dataframe",
     "Python/pandas",
     "bases de datos/sql",
     "donker",
@@ -223,8 +262,6 @@
     "haking/recursos",
     "haking/escalada de privilegios",
     "haking/FTP",
-    "haking",
-    "2. javascript/metodos",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",
