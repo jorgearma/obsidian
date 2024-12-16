@@ -17,16 +17,16 @@ where year BETWEEN 2000 and 2010
 ## operadores para texto 
 Todas las cadenas deben estar entre comillas para que el analizador de consultas pueda distinguir las palabras de la cadena de las palabras clave de SQL.
 
-| Operator    | Condition                                                   | Example                                                   |
-|-------------|--------------------------------------------------------------|-----------------------------------------------------------|
-| =           | Comparación exacta de cadenas sensibles a mayúsculas y minúsculas (nótese el uso de un solo igual) | `col_name = "abc"`                                         |
-| != or <>    | Comparación exacta de desigualdad de cadenas sensibles a mayúsculas y minúsculas | `col_name != "abcd"`                                       |
-| LIKE        | Comparación exacta de cadenas insensible a mayúsculas y minúsculas | `col_name LIKE "ABC"`                                      |
-| NOT LIKE    | Comparación de desigualdad de cadenas insensible a mayúsculas y minúsculas | `col_name NOT LIKE "ABCD"`                                 |
-| %           | Se usa en cualquier lugar de una cadena para coincidir con una secuencia de cero o más caracteres (solo con LIKE o NOT LIKE) | `col_name LIKE "%AT%"` (coincide con "AT", "ATTIC", "CAT" o incluso "BATS") |
-| _           | Se usa en cualquier lugar de una cadena para coincidir con un solo carácter (solo con LIKE o NOT LIKE) | `col_name LIKE "AN_"` (coincide con "AND", pero no con "AN") |
-| IN (…)      | La cadena existe en una lista                                  | `col_name IN ("A", "B", "C")`                              |
-| NOT IN (…)  | La cadena no existe en una lista                               | `col_name NOT IN ("D", "E", "F")`                          |
+| Operator   | Condition                                                                                                                    | Example                                                                     |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| =          | Comparación exacta de cadenas sensibles a mayúsculas y minúsculas (nótese el uso de un solo igual)                           | `col_name = "abc"`                                                          |
+| != or <>   | Comparación exacta de desigualdad de cadenas sensibles a mayúsculas y minúsculas                                             | `col_name != "abcd"`                                                        |
+| LIKE       | Comparación exacta de cadenas insensible a mayúsculas y minúsculas                                                           | `col_name LIKE "ABC"`                                                       |
+| NOT LIKE   | Comparación de desigualdad de cadenas insensible a mayúsculas y minúsculas                                                   | `col_name NOT LIKE "ABCD"`                                                  |
+| %          | Se usa en cualquier lugar de una cadena para coincidir con una secuencia de cero o más caracteres (solo con LIKE o NOT LIKE) | `col_name LIKE "%AT%"` (coincide con "AT", "ATTIC", "CAT" o incluso "BATS") |
+| _          | Se usa en cualquier lugar de una cadena para coincidir con un solo carácter (solo con LIKE o NOT LIKE)                       | `col_name LIKE "AN_"` (coincide con "AND", pero no con "AN")                |
+| IN (…)     | La cadena existe en una lista                                                                                                | `col_name IN ("A", "B", "C")`                                               |
+| NOT IN (…) | La cadena no existe en una lista                                                                                             | `col_name NOT IN ("D", "E", "F")`                                           |
 
 ```sql
 SELECT * 
