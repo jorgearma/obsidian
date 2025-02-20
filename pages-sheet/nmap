@@ -1,0 +1,31 @@
+			<><><><> nmap <><><><><>
+	nmap -sV -sC -O -p- <objetivo>
+           nmap -sC -sV -p 80 -oA /usr/share/nmap/scripts 10.10.10.15
+	
+ 
+ 
+
+SERVICE/VERSION DETECTION:
+  -sV: Probe open ports to determine service/version info
+   -A: Enable OS detection, version detection, script scanning, and traceroute
+
+HOST DISCOVERY:
+  -sL: Escaneo de Lista - simplemente listar objetivos para escanear
+  -sn: Escaneo de Ping - deshabilitar escaneo de puertos
+  -Pn: Tratar todos los hosts como en línea - saltar descubrimiento de hosts
+  -n/-R: Nunca hacer resolución DNS/Resolver siempre [por defecto: a veces]
+  
+
+TÉCNICAS DE ESCANEO:
+  -sS/sT/sA/sW/sM: Escaneo TCP SYN/Connect()/ACK/Window/Maimon
+  -sU: Escaneo UDP
+  -sN/sF/sX: Escaneo TCP Null, FIN y Xmas
+  --scanflags <flags>: Personalizar banderas de escaneo TCP
+  -sI <zombie host[:probeport]>: Escaneo inactivo
+  -sY/sZ: Escaneo SCTP INIT/COOKIE-ECHO
+  -sO: Escaneo de protocolo IP
+  -b <host de retransmisión FTP>: Escaneo de retransmisión FTP
+
+
+
+nmap -sT -p- --min-rate 10000 -oA scans/alltcp 10.10.10.15   ojo 

@@ -1,0 +1,5 @@
+hashcat -a 0 -m 1800 hast2prueba /usr/share/wordlists/rockyou.txt -O
+
+└─$ hashcat --example-hashes | grep '\$6\$'                         
+
+hashcat --example-hashes | grep '\$6\$' -B  15 | less  

