@@ -1,4 +1,4 @@
-Pasos Detallados para Ejecutar SQL Server en Docker
+sudPasos Detallados para Ejecutar SQL Server en Docker
 
 ```bash
 sudo apt-get update
@@ -16,13 +16,13 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Jorgejorge1' -p 1433:1433 -d mcr.m
 
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Jorgejorge1' \
 -p 1433:1433 \
--v /home/siemprearmando/Desktop/BeyondStats-LaLiga/Web_scraping-SQL:/var/opt/mssql/sql_files \
+-v /home/siemprearmando/Desktop/BeyondStats-LaLiga-SQL:/var/opt/mssql/sql_files \
 --name La-liga \
 -d mcr.microsoft.com/mssql/server:2019-latest
 
 
 ```
-
+recuerda hacer la montura donde tiene los archvios
 #### 3. **Verificar que el Contenedor SQL Server Está Corriendo**
 
 Puedes verificar que el contenedor SQL Server está corriendo con el siguiente comando

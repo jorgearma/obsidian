@@ -12,7 +12,6 @@
 		{"id":"9684a737b9b407ed","type":"file","file":"haking/escalada de privilegios/sudo -l.md","x":-1525,"y":10,"width":400,"height":270},
 		{"id":"6808ddcd3da7369f","type":"text","text":"sudo -","x":-1416,"y":-240,"width":182,"height":60,"color":"1"},
 		{"id":"c726e3ecbf155d58","type":"text","text":"","x":-1100,"y":-230,"width":250,"height":60,"color":"1"},
-		{"id":"1d0a950ddf223981","type":"text","text":"","x":-1845,"y":-240,"width":250,"height":60,"color":"1"},
 		{"id":"c23dc26f65c1f9b7","type":"text","text":"enumerar ","x":-750,"y":-1232,"width":170,"height":50,"color":"4"},
 		{"id":"a302074299a83d78","type":"text","text":"probar exploit","x":-780,"y":-1132,"width":250,"height":60,"color":"1"},
 		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\n\n\n","x":-400,"y":-1207,"width":635,"height":375},
@@ -22,7 +21,8 @@
 		{"id":"111a163d416b54c6","type":"text","text":"uname -a","x":-1500,"y":-1293,"width":250,"height":173},
 		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-3000,"y":-1528,"width":323,"height":101},
 		{"id":"42099f119e480cd1","type":"text","text":"sql injection   ","x":-2245,"y":-2110,"width":360,"height":94},
-		{"id":"02be7ba1bdb75b8a","type":"file","file":"haking/burnp suite/sniper atack.md","x":-2205,"y":-1877,"width":360,"height":130}
+		{"id":"02be7ba1bdb75b8a","type":"file","file":"haking/burnp suite/sniper atack.md","x":-2205,"y":-1877,"width":360,"height":130},
+		{"id":"1d0a950ddf223981","type":"text","text":"","x":-1880,"y":-240,"width":250,"height":60,"color":"1"}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},

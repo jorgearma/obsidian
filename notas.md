@@ -10,3 +10,5 @@ buscar video sobre alves externa y primaria de sql
 buscar mas informacion sobre infomtion_schema
 
 ## recordar como hacer modulo respuestas a preguntas azure ia 
+
+crear obsidian  de entorno virtual
