@@ -204,7 +204,7 @@ print(listabien)
 
 ![[Pasted image 20230104160929.png]]
 
-```
+```python
 # Para meter en una lista el contenido de por ejemplo un directorio inspeccionado con el bucle for:
 
 import os
@@ -219,7 +219,7 @@ print(lista)
 
 ![[Pasted image 20230104160946.png]]
 
-```
+```python
 # Incluso puedo recorrer archivos de un directorio e ir guardandolos en una lista y luego dentro de un bucle for hacer que se vayan copiando a otra ubicación (aunque con directorios da error):
 
 import os
