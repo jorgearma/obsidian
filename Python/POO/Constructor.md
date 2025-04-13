@@ -1,5 +1,5 @@
 La finalidad del constructor es llamar automáticamentre al crear un objeto, permitiendo enviar datos desde el principio a los métodos:
-```python
+```PYTHON
 class Galleta:
     chocolate = False
 

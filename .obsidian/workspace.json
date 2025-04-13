@@ -13,67 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/entorno virtual.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "entorno virtual"
-            }
-          },
-          {
-            "id": "a5024b21b488d3b3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z/cosas que comrpar.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "cosas que comrpar"
-            }
-          },
-          {
-            "id": "e8385949a69b3edd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "importante.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "importante"
-            }
-          },
-          {
-            "id": "1dede74e0a465eaf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/Generico/Conceptos B├ísicos/Textos.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "Textos"
-            }
-          },
-          {
-            "id": "ddae8ade10d40966",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "list.md",
+                "file": "Python/data structure/list.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -82,8 +22,7 @@
               "title": "list"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -156,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/API/Conectar Python con AbuseIP.md",
+                "file": "Python/Generico/data structure/list.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Conectar Python con AbuseIP"
+              "title": "Backlinks for list"
             }
           },
           {
@@ -222,7 +161,8 @@
               "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -239,35 +179,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ddae8ade10d40966",
+  "active": "1299f58ed315e162",
   "lastOpenFiles": [
-    "strings.md",
-    "list.md",
-    "Python/Generico/Conceptos B├ísicos/Listas.md",
-    "Python/Generico/Conceptos B├ísicos/Bucle FOR.md",
-    "importante.md",
-    "Python/Generico/Conceptos B├ísicos/Textos.md",
+    "Python/data structure/dict.md",
     "Python/entorno virtual.md",
-    "z/cosas que comrpar.md",
-    "2. javascript/estructura de datos/cola.md",
-    "Python/Generico/Convertir .PY a .EXE.md",
-    "Python/Generico/Conceptos B├ísicos/Variables.md",
-    "Python/Generico/Conceptos B├ísicos/Input - Lectura por Teclado con Python.md",
-    "Python/Generico/Conceptos B├ísicos/Funciones.md",
-    "Python/Generico/Conceptos B├ísicos/Diccionarios en Python.md",
-    "Python/Generico/Conceptos B├ísicos/Indices.md",
-    "notas.md",
-    "notas pyton.md",
     "Python/Generico/Expresiones Regulares en Python.md",
-    "Python/POO/Atributos, Métodos y Self.md",
-    "3. node.js/cheat_page/iniciar proyecto.md",
-    "2. javascript/rollup y sass.md",
-    "2. javascript/promesas.md",
-    "2. javascript/operadores.md",
-    "2. javascript/metodos/strings metodos.md",
-    "2. javascript/metodos/numeros metodos.md",
-    "2. javascript/metodos/metodos.md",
+    "Python/data structure/list.md",
+    "Python/data structure/set.md",
+    "Python/data structure/strings.md",
+    "Python/data structure/tuples.md",
+    "Python/Generico/Conceptos basicos/Bucle FOR.md",
     "Untitled.canvas",
+    "Python/para estudiar ojo.md",
+    "importante.md",
+    "notas.md",
+    "Python/POO/Constructor.md",
+    "donker/Docker y sql.md",
+    "azure/notas.md",
+    "2. javascript/estructura de datos/cola.md",
+    "2. javascript/estructura de datos/Arreglos (Arrays).md",
+    "z/cosas que comrpar.md",
+    "bases de datos/sql/comandos sql.md",
+    "Python/Generico/Conceptos basicos/itertools.md",
+    "Python/Generico/Conceptos basicos/Input - Lectura por Teclado con Python.md",
+    "Python/Generico/Conceptos basicos/Funciones.md",
+    "notas pyton.md",
+    "Python/itertools",
+    "Python/Generico/data structure/Untitled",
+    "Python/POO/Atributos, Métodos y Self.md",
+    "3. node.js/Async Await.md",
+    "3. node.js/event.md",
+    "3. node.js/globals.md",
+    "Python/data structure",
     "bases de datos/sql server",
     "pages-sheet/trucos",
     "pages-sheet/hascat",
@@ -275,9 +218,6 @@
     "pages-sheet/nmap",
     "pages-sheet/curl",
     "pages-sheet/bash_revese_shell",
-    "pages-sheet",
-    "azure",
-    "z",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",
