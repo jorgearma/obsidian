@@ -1,5 +1,5 @@
 # ✅ Todo lo que necesito saber para ser Junior Medio Competente en Python
-
+	
 ## 🧠 1. Fundamentos del lenguaje
 - Variables y tipos de datos: `int`, `float`, `str`, `bool`
 - Conversión entre tipos: `str()`, `int()`, `float()`

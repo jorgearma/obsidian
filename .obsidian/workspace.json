@@ -13,16 +13,34 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/data structure/list.md",
+                "file": "Python/data structure/tuples.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "list"
+              "title": "tuples"
+            }
+          },
+          {
+            "id": "8d8aeea8854cf3d7",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": -1115.6776668061289,
+                  "y": 4.069192271521047,
+                  "zoom": -0.5378598509114347
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -179,37 +197,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1299f58ed315e162",
+  "active": "8d8aeea8854cf3d7",
   "lastOpenFiles": [
-    "Python/data structure/dict.md",
-    "Python/entorno virtual.md",
-    "Python/Generico/Expresiones Regulares en Python.md",
-    "Python/data structure/list.md",
-    "Python/data structure/set.md",
-    "Python/data structure/strings.md",
-    "Python/data structure/tuples.md",
-    "Python/Generico/Conceptos basicos/Bucle FOR.md",
+    "haking/2. gobuster.md",
+    "haking/1. nmap.md",
     "Untitled.canvas",
-    "Python/para estudiar ojo.md",
+    "haking/escalada de privilegios/buscar credenciales.md",
+    "haking/escalada de privilegios/sudo -l.md",
+    "haking/escalada de privilegios/enumerar puertos internos.md",
+    "haking/tareas.md",
+    "haking/cheat.page.md",
     "importante.md",
-    "notas.md",
-    "Python/POO/Constructor.md",
-    "donker/Docker y sql.md",
-    "azure/notas.md",
-    "2. javascript/estructura de datos/cola.md",
-    "2. javascript/estructura de datos/Arreglos (Arrays).md",
-    "z/cosas que comrpar.md",
-    "bases de datos/sql/comandos sql.md",
+    "Python/data structure/tuples.md",
+    "bases de datos/sql server/instalar.md",
+    "haking/hash.md",
+    "haking/FTP-TCP 21.md",
+    "haking/probar.md",
+    "haking/notas.md",
+    "para estudiar ciber seguridad.md",
+    "Python/para estudiar ojo.md",
     "Python/Generico/Conceptos basicos/itertools.md",
-    "Python/Generico/Conceptos basicos/Input - Lectura por Teclado con Python.md",
-    "Python/Generico/Conceptos basicos/Funciones.md",
+    "Python/API/Conectar Python con AbuseIP.md",
+    "Python/API/Librería VirusTotal Apis.md",
+    "notas.md",
+    "-----.md",
+    "proyecto-tuli.md",
     "notas pyton.md",
+    "Python/data structure/list.md",
+    "Python/data structure/dict.md",
     "Python/itertools",
     "Python/Generico/data structure/Untitled",
-    "Python/POO/Atributos, Métodos y Self.md",
-    "3. node.js/Async Await.md",
-    "3. node.js/event.md",
-    "3. node.js/globals.md",
     "Python/data structure",
     "bases de datos/sql server",
     "pages-sheet/trucos",

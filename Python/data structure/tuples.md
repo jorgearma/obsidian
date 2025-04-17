@@ -1,3 +1,4 @@
+
 | Método de lista | ¿Funciona con tuplas adentro? | Ejemplo                          |
 | --------------- | ----------------------------- | -------------------------------- |
 | `append()`      | ✅ Sí                          | `lista.append((nuevo, dato))`    |
