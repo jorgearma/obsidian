@@ -26,17 +26,15 @@
             "id": "8d8aeea8854cf3d7",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -1115.6776668061289,
-                  "y": 4.069192271521047,
-                  "zoom": -0.5378598509114347
-                }
+                "file": "haking/1. nmap.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "1. nmap"
             }
           }
         ],
@@ -199,21 +197,23 @@
   },
   "active": "8d8aeea8854cf3d7",
   "lastOpenFiles": [
+    "haking/enumeracion web.md",
+    "haking/FTP-TCP 21.md",
+    "haking/hash.md",
+    "haking/notas.md",
+    "haking/probar.md",
+    "haking/tareas.md",
+    "haking/transferencia de archivos.md",
+    "Untitled.canvas",
+    "haking/cheat.page.md",
+    "Python/data structure/tuples.md",
     "haking/2. gobuster.md",
     "haking/1. nmap.md",
-    "Untitled.canvas",
     "haking/escalada de privilegios/buscar credenciales.md",
     "haking/escalada de privilegios/sudo -l.md",
     "haking/escalada de privilegios/enumerar puertos internos.md",
-    "haking/tareas.md",
-    "haking/cheat.page.md",
     "importante.md",
-    "Python/data structure/tuples.md",
     "bases de datos/sql server/instalar.md",
-    "haking/hash.md",
-    "haking/FTP-TCP 21.md",
-    "haking/probar.md",
-    "haking/notas.md",
     "para estudiar ciber seguridad.md",
     "Python/para estudiar ojo.md",
     "Python/Generico/Conceptos basicos/itertools.md",
@@ -224,7 +224,6 @@
     "proyecto-tuli.md",
     "notas pyton.md",
     "Python/data structure/list.md",
-    "Python/data structure/dict.md",
     "Python/itertools",
     "Python/Generico/data structure/Untitled",
     "Python/data structure",
