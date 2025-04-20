@@ -1,10 +1,7 @@
 {
 	"nodes":[
 		{"id":"cdac293e6f492a80","type":"text","text":"nmap  port 80","x":-778,"y":-2140,"width":220,"height":60,"color":"4"},
-		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-876,"y":-1700,"width":423,"height":160,"color":"4"},
-		{"id":"844a5db8ec866260","type":"text","text":"probar  exploits","x":-774,"y":-1480,"width":218,"height":50,"color":"1"},
 		{"id":"9b77f847cccf1e01","type":"text","text":"etsamos dentro de la maquina  ","x":-843,"y":-1380,"width":371,"height":50},
-		{"id":"c06449ef265babdd","type":"text","text":"# burnd suite\n","x":-1527,"y":-1653,"width":304,"height":66},
 		{"id":"70a76c06e9257836","type":"text","text":"pivotar\n","x":-744,"y":-1001,"width":174,"height":54,"color":"4"},
 		{"id":"7122d3b4c5aaa9e3","type":"text","text":"# linux ","x":-1416,"y":-560,"width":180,"height":60,"color":"3"},
 		{"id":"45b4ae072427d5cb","type":"text","text":"# windows","x":73,"y":-530,"width":250,"height":60},
@@ -24,9 +21,12 @@
 		{"id":"c726e3ecbf155d58","type":"text","text":"getcap -r  /usr/bin\n","x":-985,"y":-235,"width":287,"height":55,"color":"1"},
 		{"id":"80a3543b2be91ac3","type":"text","text":"22/tcp open  ssh","x":-1174,"y":-2130,"width":250,"height":50,"color":"4"},
 		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nadmin\nadmin\n","x":-1148,"y":-1929,"width":199,"height":235,"color":"1"},
-		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\n\n\n","x":-437,"y":-1232,"width":635,"height":375},
-		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-119,"y":-2272,"width":356,"height":385},
-		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-400,"y":-1660,"width":312,"height":80,"color":"1"}
+		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-253,"y":-1660,"width":312,"height":80,"color":"1"},
+		{"id":"844a5db8ec866260","type":"text","text":"probar  exploits","x":-786,"y":-1480,"width":244,"height":60,"color":"1"},
+		{"id":"c06449ef265babdd","type":"text","text":"# burnd suite\n","x":-1500,"y":-1653,"width":304,"height":66},
+		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-883,"y":-1700,"width":438,"height":160,"color":"4"},
+		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-400,"y":-2160,"width":356,"height":385},
+		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\nlinpias (estudiar uoput)\n\n\n","x":-437,"y":-1232,"width":510,"height":375}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},
