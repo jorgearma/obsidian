@@ -26,7 +26,8 @@
 		{"id":"c06449ef265babdd","type":"text","text":"# burnd suite\n","x":-1500,"y":-1653,"width":304,"height":66},
 		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-883,"y":-1700,"width":438,"height":160,"color":"4"},
 		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-400,"y":-2160,"width":356,"height":385},
-		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\nlinpias (estudiar uoput)\n\n\n","x":-437,"y":-1232,"width":510,"height":375}
+		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\nlinpias (estudiar uoput)\n\n\n","x":-312,"y":-1255,"width":510,"height":375},
+		{"id":"db4464ba09b355e5","x":280,"y":-1198,"width":366,"height":262,"type":"text","text":"# herramientas\n\n1. linpias\n2. pyspy\n3. "}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},
