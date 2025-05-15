@@ -107,6 +107,5 @@ Esta lista te ayudará a recolectar toda la información esencial cuando encuent
 
 ---
 
-**Consejo:** Documenta cada cosa en tu bloc de notas o markdown por máquina. Toda esta info puede ser clave para escalar privilegios más adelante.
 
 

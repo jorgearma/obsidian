@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "haking/web enumeracion/tools web enum/whaweb.md",
+                "file": "haking/web enumeracion/tools web enum/curl.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "whaweb"
+              "title": "curl"
             }
           }
         ]
@@ -179,16 +179,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "65648c7870ef6c90",
+  "active": "106cb571e05de8d9",
   "lastOpenFiles": [
+    "haking/web enumeracion/tools web enum/feroxbuster.md",
+    "haking/web enumeracion/tools web enum/curl.md",
+    "haking/web enumeracion/tools web enum/whaweb.md",
     "haking/web enumeracion/tools web enum/openssl.md",
     "haking/web enumeracion/tools web enum/nikto.md",
-    "haking/web enumeracion/tools web enum/curl.md",
-    "Untitled.canvas",
-    "haking/metodologia.md",
-    "haking/web enumeracion/tools web enum/whaweb.md",
     "haking/1. nmap.md",
     "haking/2. gobuster.md",
+    "haking/web enumeracion/enumer.md",
+    "haking/web enumeracion/enumeracion web.md",
+    "haking/upgrade shell.md",
+    "Untitled.canvas",
+    "haking/metodologia.md",
     "-----.md",
     "importante.md",
     "notas.md",
@@ -204,9 +208,6 @@
     "haking/cheat.page.md",
     "Python/data structure/list.md",
     "linux/descomprimir/zip.md",
-    "haking/find.md",
-    "haking/escalada de privilegios/buscar credenciales.md",
-    "haking/escalada de privilegios/enumerar puertos internos.md",
     "haking/web enumeracion/tools web enum",
     "haking/web enumeracion",
     "haking/tools/pspy",
