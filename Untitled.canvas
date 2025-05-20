@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"cdac293e6f492a80","type":"text","text":"nmap  port 80","x":-778,"y":-2140,"width":220,"height":60,"color":"4"},
-		{"id":"9b77f847cccf1e01","type":"text","text":"etsamos dentro de la maquina  ","x":-843,"y":-1380,"width":371,"height":50},
+		{"id":"9b77f847cccf1e01","type":"text","text":"etsamos dentro de la maquina  ","x":-843,"y":-1380,"width":398,"height":60},
 		{"id":"70a76c06e9257836","type":"text","text":"pivotar\n","x":-744,"y":-1001,"width":174,"height":54,"color":"4"},
 		{"id":"7122d3b4c5aaa9e3","type":"text","text":"# linux ","x":-1416,"y":-560,"width":180,"height":60,"color":"3"},
 		{"id":"45b4ae072427d5cb","type":"text","text":"# windows","x":73,"y":-530,"width":250,"height":60},
@@ -12,22 +12,25 @@
 		{"id":"400a0662d51e31da","type":"text","text":"enumerar","x":-739,"y":-880,"width":163,"height":97,"color":"4"},
 		{"id":"537c41d77fba918d","type":"text","text":"encontrar  password","x":-2260,"y":-240,"width":280,"height":60,"color":"1"},
 		{"id":"da450abdba8bfdbf","type":"text","text":"archivos confidenciales ","x":-2245,"y":-47,"width":250,"height":115},
-		{"id":"111a163d416b54c6","type":"text","text":"uname -a","x":-1500,"y":-1293,"width":250,"height":173},
 		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-3000,"y":-1528,"width":323,"height":101},
 		{"id":"42099f119e480cd1","type":"text","text":"# sql injection   ","x":-2245,"y":-2110,"width":360,"height":94},
 		{"id":"02be7ba1bdb75b8a","type":"file","file":"haking/burnp suite/sniper atack.md","x":-2200,"y":-1877,"width":355,"height":130},
-		{"id":"1d0a950ddf223981","type":"text","text":"","x":-1880,"y":-240,"width":250,"height":60,"color":"1"},
+		{"id":"1d0a950ddf223981","type":"text","text":"Permisos SUID","x":-1880,"y":-240,"width":250,"height":60,"color":"1"},
 		{"id":"21fc4f9729133562","type":"text","text":"# capabilities\n\nbuscar en la salidad que puedo machear\ncon la liste de gfcboint y probar los comandos","x":-999,"y":10,"width":314,"height":267},
 		{"id":"c726e3ecbf155d58","type":"text","text":"getcap -r  /usr/bin\n","x":-985,"y":-235,"width":287,"height":55,"color":"1"},
 		{"id":"80a3543b2be91ac3","type":"text","text":"22/tcp open  ssh","x":-1174,"y":-2130,"width":250,"height":50,"color":"4"},
 		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nadmin\nadmin\n","x":-1148,"y":-1929,"width":199,"height":235,"color":"1"},
-		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-253,"y":-1660,"width":312,"height":80,"color":"1"},
 		{"id":"844a5db8ec866260","type":"text","text":"probar  exploits","x":-786,"y":-1480,"width":244,"height":60,"color":"1"},
 		{"id":"c06449ef265babdd","type":"text","text":"# burnd suite\n","x":-1500,"y":-1653,"width":304,"height":66},
 		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-883,"y":-1700,"width":438,"height":160,"color":"4"},
-		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-400,"y":-2160,"width":356,"height":385},
 		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\nlinpias (estudiar uoput)\n\n\n","x":-312,"y":-1255,"width":510,"height":375},
-		{"id":"db4464ba09b355e5","x":280,"y":-1198,"width":366,"height":262,"type":"text","text":"# herramientas\n\n1. linpias\n2. pyspy\n3. "}
+		{"id":"db4464ba09b355e5","type":"text","text":"# herramientas\n\n1. linpias\n2. pyspy\n3. ","x":280,"y":-1198,"width":366,"height":262},
+		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-413,"y":-2272,"width":356,"height":385},
+		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-312,"y":-1660,"width":312,"height":80,"color":"1"},
+		{"id":"c0af99ccf2dd52a1","x":-296,"y":-1790,"width":592,"height":87,"color":"1","type":"text","text":"# File Upload Vulnerability"},
+		{"id":"e5dacd953add4176","x":389,"y":-1800,"width":257,"height":108,"type":"text","text":"Ejecución remota de código (RCE)"},
+		{"id":"111a163d416b54c6","type":"text","text":"buscar credenciales","x":-1280,"y":-1237,"width":264,"height":61},
+		{"id":"ad169e3e5c15db30","x":-1955,"y":11,"width":400,"height":400,"type":"file","file":"haking/escalada de privilegios/SUID.md"}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},
@@ -45,7 +48,7 @@
 		{"id":"ef9d53aad9fb52ea","fromNode":"400a0662d51e31da","fromSide":"bottom","toNode":"7122d3b4c5aaa9e3","toSide":"top"},
 		{"id":"2ba9ab68116485cb","fromNode":"400a0662d51e31da","fromSide":"bottom","toNode":"45b4ae072427d5cb","toSide":"top"},
 		{"id":"c123efd58d511fe5","fromNode":"c23dc26f65c1f9b7","fromSide":"left","toNode":"111a163d416b54c6","toSide":"right"},
-		{"id":"58560f0f0cf7868b","fromNode":"111a163d416b54c6","fromSide":"bottom","toNode":"a302074299a83d78","toSide":"left"},
+		{"id":"58560f0f0cf7868b","fromNode":"111a163d416b54c6","fromSide":"bottom","toNode":"400a0662d51e31da","toSide":"left"},
 		{"id":"a4d180c121d5f2d5","fromNode":"537c41d77fba918d","fromSide":"bottom","toNode":"da450abdba8bfdbf","toSide":"top"},
 		{"id":"4e400c4b9cebf4a7","fromNode":"c06449ef265babdd","fromSide":"left","toNode":"42099f119e480cd1","toSide":"right"},
 		{"id":"9ee3bee64f47eb0c","fromNode":"c06449ef265babdd","fromSide":"left","toNode":"02be7ba1bdb75b8a","toSide":"right"},
@@ -55,6 +58,10 @@
 		{"id":"ae7b2a82e3dcedd1","fromNode":"4bb2571bef9faf4b","fromSide":"bottom","toNode":"9b77f847cccf1e01","toSide":"left"},
 		{"id":"69f5a9725c0be70b","fromNode":"c726e3ecbf155d58","fromSide":"bottom","toNode":"21fc4f9729133562","toSide":"top"},
 		{"id":"940c171c3278b394","fromNode":"ec996f07c827adcc","fromSide":"bottom","toNode":"844a5db8ec866260","toSide":"right"},
-		{"id":"b260a2e3a23d6718","fromNode":"c583919dfad6c638","fromSide":"right","toNode":"ec996f07c827adcc","toSide":"left"}
+		{"id":"b260a2e3a23d6718","fromNode":"c583919dfad6c638","fromSide":"right","toNode":"ec996f07c827adcc","toSide":"left"},
+		{"id":"0f5bd07ab0286662","fromNode":"c583919dfad6c638","fromSide":"right","toNode":"c0af99ccf2dd52a1","toSide":"left"},
+		{"id":"c781a21132b58d4f","fromNode":"c0af99ccf2dd52a1","fromSide":"right","toNode":"e5dacd953add4176","toSide":"left"},
+		{"id":"39e6eaa3c8e585df","fromNode":"e5dacd953add4176","fromSide":"bottom","toNode":"9b77f847cccf1e01","toSide":"right"},
+		{"id":"97a1be3d021e7318","fromNode":"1d0a950ddf223981","fromSide":"bottom","toNode":"ad169e3e5c15db30","toSide":"top"}
 	]
 }

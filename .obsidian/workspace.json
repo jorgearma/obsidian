@@ -11,18 +11,36 @@
             "id": "106cb571e05de8d9",
             "type": "leaf",
             "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": -463.73546292688525,
+                  "y": -932.2282119803932,
+                  "zoom": -0.9787769683567242
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "022be2d06e386a99",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "haking/escalada de privilegios/buscar credenciales.md",
+                "file": "haking/comandos/tr.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "buscar credenciales"
+              "title": "tr"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -179,35 +197,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "106cb571e05de8d9",
+  "active": "022be2d06e386a99",
   "lastOpenFiles": [
-    "haking/escalada de privilegios/enumerar puertos internos.md",
-    "haking/escalada de privilegios/SUID.md",
-    "haking/escalada de privilegios/sudo -l.md",
-    "haking/escalada de privilegios/PATH.md",
+    "haking/comandos/base64.md",
+    "haking/comandos/tr.md",
+    "haking/comandos/string.md",
+    "haking/comandos/grep.md",
+    "haking/comandos/find.md",
+    "haking/comandos",
     "haking/escalada de privilegios/buscar credenciales.md",
-    "haking/tools/linpeas.md",
-    "haking/tools/exiftool.md",
-    "haking/upgrade shell.md",
-    "haking/metodologia.md",
-    "notas pyton.md",
-    "para estudiar ciber seguridad.md",
-    "proyecto-tuli.md",
-    "haking/web enumeracion/enumer.md",
-    "haking/web enumeracion/enumeracion web.md",
-    "haking/tareas.md",
-    "haking/transferencia de archivos.md",
-    "haking/notas.md",
-    "haking/web enumeracion/login.md",
-    "haking/web enumeracion/tools web enum/whaweb.md",
-    "haking/web enumeracion/tools web enum/openssl.md",
-    "haking/web enumeracion/tools web enum/nikto.md",
-    "haking/web enumeracion/tools web enum/feroxbuster.md",
-    "haking/web enumeracion/tools web enum/curl.md",
+    "haking/importante.md",
+    "haking/hash.md",
+    "haking/escalada de privilegios/enumerar puertos internos.md",
     "haking/1. nmap.md",
     "haking/2. gobuster.md",
+    "haking/cheat.page.md",
+    "haking/FTP-TCP 21.md",
+    "haking/metodologia.md",
+    "haking/notas.md",
+    "haking/tareas.md",
+    "haking/transferencia de archivos.md",
+    "haking/upgrade shell.md",
+    "1. notas/ejersicios.md",
+    "1. notas/estadisticas futbol.md",
+    "1. notas/cosas para hacer.md",
+    "haking/tools/hydra.md",
+    "haking/tools/searchsploit.md",
+    "haking/web enumeracion/tools web enum/feroxbuster.md",
+    "haking/web enumeracion/enumeracion web.md",
+    "haking/web enumeracion/enumer.md",
     "Untitled.canvas",
-    "-----.md",
     "haking/web enumeracion/tools web enum",
     "haking/web enumeracion",
     "haking/tools/pspy",
@@ -217,7 +236,6 @@
     "Python/data structure",
     "bases de datos/sql server",
     "pages-sheet/trucos",
-    "pages-sheet/hascat",
     "Untitled 1.canvas",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",
