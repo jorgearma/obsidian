@@ -1,4 +1,4 @@
-[[2. javascript/fundamentos/variables]]
+[[javascript/fundamentos/variables]]
 
 ## scope global
 son accesibles desde todo el codigo 

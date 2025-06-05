@@ -19,7 +19,6 @@
 		{"id":"21fc4f9729133562","type":"text","text":"# capabilities\n\nbuscar en la salidad que puedo machear\ncon la liste de gfcboint y probar los comandos","x":-999,"y":10,"width":314,"height":267},
 		{"id":"c726e3ecbf155d58","type":"text","text":"getcap -r  /usr/bin\n","x":-985,"y":-235,"width":287,"height":55,"color":"1"},
 		{"id":"80a3543b2be91ac3","type":"text","text":"22/tcp open  ssh","x":-1174,"y":-2130,"width":250,"height":50,"color":"4"},
-		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nadmin\nadmin\n","x":-1148,"y":-1929,"width":199,"height":235,"color":"1"},
 		{"id":"844a5db8ec866260","type":"text","text":"probar  exploits","x":-786,"y":-1480,"width":244,"height":60,"color":"1"},
 		{"id":"c06449ef265babdd","type":"text","text":"# burnd suite\n","x":-1500,"y":-1653,"width":304,"height":66},
 		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-883,"y":-1700,"width":438,"height":160,"color":"4"},
@@ -27,10 +26,11 @@
 		{"id":"db4464ba09b355e5","type":"text","text":"# herramientas\n\n1. linpias\n2. pyspy\n3. ","x":280,"y":-1198,"width":366,"height":262},
 		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-413,"y":-2272,"width":356,"height":385},
 		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-312,"y":-1660,"width":312,"height":80,"color":"1"},
-		{"id":"c0af99ccf2dd52a1","x":-296,"y":-1790,"width":592,"height":87,"color":"1","type":"text","text":"# File Upload Vulnerability"},
-		{"id":"e5dacd953add4176","x":389,"y":-1800,"width":257,"height":108,"type":"text","text":"Ejecución remota de código (RCE)"},
+		{"id":"c0af99ccf2dd52a1","type":"text","text":"# File Upload Vulnerability","x":-296,"y":-1790,"width":592,"height":87,"color":"1"},
+		{"id":"e5dacd953add4176","type":"text","text":"Ejecución remota de código (RCE)","x":389,"y":-1800,"width":257,"height":108},
 		{"id":"111a163d416b54c6","type":"text","text":"buscar credenciales","x":-1280,"y":-1237,"width":264,"height":61},
-		{"id":"ad169e3e5c15db30","x":-1955,"y":11,"width":400,"height":400,"type":"file","file":"haking/escalada de privilegios/SUID.md"}
+		{"id":"ad169e3e5c15db30","type":"file","file":"haking/escalada de privilegios/SUID.md","x":-1955,"y":11,"width":400,"height":400},
+		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nfuerza bruta\nhydra\n","x":-1148,"y":-2016,"width":199,"height":285,"color":"1"}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},

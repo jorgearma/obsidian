@@ -1,13 +1,22 @@
 ```bash
-script -qc /bin/bash /dev/null
-#Upgrade shell
 python3 -c 'import pty; pty.spawn("/bin/bash")'
-SHELL=/bin/bash script -q /dev/null
-Ctrl-Z
-stty raw - echo ;fg
+
+
+##2
+Ctrl + Z
+##3
+
+stty raw -echo
 fg
-reset
-xterm
+
+##4
+
 export TERM=xterm
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export SHELL=/bin/bash
+
+
+##5
+
+reset
+
 ```

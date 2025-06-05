@@ -1,6 +1,0 @@
-
-python scriting 
-
-mysql
-
-mongoDB
