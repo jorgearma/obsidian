@@ -12,8 +12,6 @@
 		{"id":"400a0662d51e31da","type":"text","text":"enumerar","x":-739,"y":-880,"width":163,"height":97,"color":"4"},
 		{"id":"537c41d77fba918d","type":"text","text":"encontrar  password","x":-2260,"y":-240,"width":280,"height":60,"color":"1"},
 		{"id":"da450abdba8bfdbf","type":"text","text":"archivos confidenciales ","x":-2245,"y":-47,"width":250,"height":115},
-		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-3000,"y":-1528,"width":323,"height":101},
-		{"id":"42099f119e480cd1","type":"text","text":"# sql injection   ","x":-2245,"y":-2110,"width":360,"height":94},
 		{"id":"02be7ba1bdb75b8a","type":"file","file":"haking/burnp suite/sniper atack.md","x":-2200,"y":-1877,"width":355,"height":130},
 		{"id":"1d0a950ddf223981","type":"text","text":"Permisos SUID","x":-1880,"y":-240,"width":250,"height":60,"color":"1"},
 		{"id":"21fc4f9729133562","type":"text","text":"# capabilities\n\nbuscar en la salidad que puedo machear\ncon la liste de gfcboint y probar los comandos","x":-999,"y":10,"width":314,"height":267},
@@ -24,13 +22,15 @@
 		{"id":"c583919dfad6c638","type":"text","text":"gobsuter,  whatweb, davweb, crackmapexec, rpcclient, serachexploit , curl -i http://...\n\n\n","x":-883,"y":-1700,"width":438,"height":160,"color":"4"},
 		{"id":"d3553d2eff71d843","type":"text","text":"buscar archivos backup \nbuscar puertos internos abiertos\nsudo -l\ncapabilitis\ncron jobs\nuname -a\nlinpias (estudiar uoput)\n\n\n","x":-312,"y":-1255,"width":510,"height":375},
 		{"id":"db4464ba09b355e5","type":"text","text":"# herramientas\n\n1. linpias\n2. pyspy\n3. ","x":280,"y":-1198,"width":366,"height":262},
-		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-413,"y":-2272,"width":356,"height":385},
-		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables","x":-312,"y":-1660,"width":312,"height":80,"color":"1"},
 		{"id":"c0af99ccf2dd52a1","type":"text","text":"# File Upload Vulnerability","x":-296,"y":-1790,"width":592,"height":87,"color":"1"},
 		{"id":"e5dacd953add4176","type":"text","text":"Ejecución remota de código (RCE)","x":389,"y":-1800,"width":257,"height":108},
 		{"id":"111a163d416b54c6","type":"text","text":"buscar credenciales","x":-1280,"y":-1237,"width":264,"height":61},
 		{"id":"ad169e3e5c15db30","type":"file","file":"haking/escalada de privilegios/SUID.md","x":-1955,"y":11,"width":400,"height":400},
-		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nfuerza bruta\nhydra\n","x":-1148,"y":-2016,"width":199,"height":285,"color":"1"}
+		{"id":"4bb2571bef9faf4b","type":"text","text":"encontrar credenciales \n\nanonymus\n\nfuerza bruta\nhydra\n","x":-1148,"y":-2016,"width":199,"height":285,"color":"1"},
+		{"id":"42099f119e480cd1","type":"text","text":"# sql injection   ","x":-2205,"y":-2105,"width":360,"height":94},
+		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables\nwpscan para wordpress","x":-312,"y":-1680,"width":385,"height":120,"color":"1"},
+		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-490,"y":-2208,"width":356,"height":385},
+		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-2640,"y":-1500,"width":323,"height":101}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},

@@ -1,4 +1,4 @@
-# 🛠️ WPScan Cheat Sheet (OSCP Ready)
+# 🛠️ WPScan Cheat Sheet 
 
 ## ⭐ Scans Favoritos
 
@@ -7,7 +7,7 @@
 wpscan --url http://TARGET -e u,ap
 
 # 2. Scan completo con detección agresiva
-wpscan --url http://$TARGET -e ap --plugins-detection aggressive
+wpscan --url http://$RHOST -e ap --plugins-detection aggressive
 
 # 3. Fuerza bruta de login (requiere API token)
 wpscan --url http://TARGET --usernames admin --passwords /usr/share/wordlists/rockyou.txt
