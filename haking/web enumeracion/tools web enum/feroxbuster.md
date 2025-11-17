@@ -2,7 +2,7 @@
 # 🧾 Explicación de los flags de feroxbuster
 
 ```bash
-feroxbuster -u http://$RHOTS/ \
+feroxbuster -u https://app.senaticmia.com/ \
   -x htm,php,html,js,txt,zip,bak,asp,aspx,xml,py \
   -r \
   -o 80-ferox.txt \
