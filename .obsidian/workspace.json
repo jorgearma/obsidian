@@ -26,63 +26,19 @@
             "id": "eca645d6cc40eb92",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -888.7802654610498,
-                  "y": -1470.0993526330722,
-                  "zoom": -1.1157428751669967
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
-            }
-          },
-          {
-            "id": "410a898fe85494b9",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "haking/comandos/opne ssl.md",
+                "file": "haking/SSH/ssh-enumeracion.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "opne ssl"
-            }
-          },
-          {
-            "id": "3a2993177f9322b9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "haking/web enumeracion/login.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "login"
-            }
-          },
-          {
-            "id": "7d8eac1de65748a3",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "informes-seguridad/Mitigacion_Endpoints_member-groups.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Mitigacion_Endpoints_member-groups"
+              "title": "ssh-enumeracion"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,45 +196,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "65648c7870ef6c90",
+  "active": "eca645d6cc40eb92",
   "lastOpenFiles": [
-    "informes-seguridad/solucion member groups.md",
-    "informes-seguridad/Mitigacion_Endpoints_member-groups.pdf",
-    "informes-seguridad/solucion member groups_tmp.html",
-    "informes-seguridad/transcribe.md",
-    "informes-seguridad/transcribe.pdf",
-    "informes-seguridad/Untitled.md",
-    "informes-seguridad/members.md",
-    "informes-seguridad/evaluator e instrutions.md",
-    "informes-seguridad/Mitigacion_Falla_Endpoint_Transcribe.pdf",
-    "informes-seguridad/Untitled 1.md",
-    "informes-seguridad/Untitled 1_tmp.html",
-    "informes-seguridad/Documento_Tecnico1.pdf",
-    "informes-seguridad/Documento_Tecnico_members.pdf",
-    "informes-seguridad/informe_bug_MIA.pdf",
-    "informes-seguridad/Untitled_tmp.html",
-    "informes-seguridad/Documento_tecnico_evaluator_instrucions.pdf",
-    "haking/web enumeracion/tools web enum/dig.md",
+    "haking/SSH/ssh-comandos.md",
+    "haking/SSH/ssh-enumeracion.md",
+    "haking/escalada de privilegios/buscar credenciales.md",
+    "haking/SSH",
     "haking/2. gobuster.md",
+    "haking/1. nmap.md",
+    "haking/comandos/smb.md",
+    "haking/comandos/string.md",
+    "haking/comandos/tr.md",
+    "haking/notas.md",
+    "haking/metodologia.md",
+    "haking/importante.md",
+    "haking/hash.md",
+    "haking/FTP-TCP 21.md",
+    "haking/cheat.page.md",
+    "haking/web enumeracion/enumeracion web.md",
+    "haking/web enumeracion/enumer.md",
     "haking/web enumeracion/tools web enum/wpscan.md",
     "haking/web enumeracion/tools web enum/wfuzz.md",
     "haking/web enumeracion/tools web enum/openssl.md",
     "haking/web enumeracion/tools web enum/nikto.md",
     "haking/web enumeracion/tools web enum/feroxbuster.md",
+    "haking/web enumeracion/tools web enum/dig.md",
     "haking/web enumeracion/tools web enum/curl.md",
-    "haking/web enumeracion/enumeracion web.md",
     "Untitled.canvas",
+    "haking/comandos/opne ssl.md",
+    "haking/web enumeracion/login.md",
+    "informes-seguridad/Documento_Tecnico_members.pdf",
+    "informes-seguridad/Documento_tecnico_evaluator_instrucions.pdf",
+    "informes-seguridad/transcribe.md",
+    "informes-seguridad/Mitigacion_Falla_Endpoint_Transcribe.pdf",
+    "informes-seguridad/Documento_Tecnico1.pdf",
+    "informes-seguridad/Mitigacion_Endpoints_member-groups.pdf",
+    "informes-seguridad/solucion member groups_tmp.html",
+    "informes-seguridad/transcribe.pdf",
+    "informes-seguridad/Untitled 1_tmp.html",
+    "informes-seguridad/informe_bug_MIA.pdf",
     "Untitled 1.canvas",
-    "importante.md",
-    "notas.md",
-    "notas pyton.md",
-    "para estudiar ciber seguridad.md",
-    "proyecto-tuli.md",
-    "haking/1. nmap.md",
-    "Python/entorno virtual.md",
-    "algoritmos/de busqueda/busqueda binaria.md",
-    "haking/hash.md",
-    "haking/escalada de privilegios/buscar credenciales.md",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/tcllogo.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/ouster.png",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/demos/images/earth.gif",
