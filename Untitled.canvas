@@ -30,7 +30,12 @@
 		{"id":"42099f119e480cd1","type":"text","text":"# sql injection   ","x":-2205,"y":-2105,"width":360,"height":94},
 		{"id":"ec996f07c827adcc","type":"text","text":"encontrar versiones vulnerables\nwpscan para wordpress","x":-312,"y":-1680,"width":385,"height":120,"color":"1"},
 		{"id":"d479ca99afd72986","type":"text","text":"entrar a la web CTRL u \nf12\nbuscar versiones\nlunchpad\ncargar documentos","x":-490,"y":-2208,"width":356,"height":385},
-		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-2640,"y":-1500,"width":323,"height":101}
+		{"id":"d7309f72276a4fe0","type":"text","text":"Server-Side Template Injection","x":-2640,"y":-1500,"width":323,"height":101},
+		{"id":"8b829ce6951164a8","type":"text","text":"500/ike UDP","x":-1429,"y":-2341,"width":204,"height":57,"color":"4"},
+		{"id":"5e0c51af08263c1c","type":"text","text":"UDP scan","x":-1845,"y":-2720,"width":141,"height":59,"color":"4"},
+		{"id":"0654fc202ab5b000","type":"text","text":"ike-scan\nagrsive mode ","x":-1446,"y":-2065,"width":250,"height":108},
+		{"id":"607ff6bc823dc33f","type":"file","file":"haking/tools/hashcat.md","x":-1429,"y":-1898,"width":220,"height":50},
+		{"id":"47e1b745b2eee7fd","x":1680,"y":-1825,"width":323,"height":50,"color":"4","type":"text","text":"versiones vulnerables"}
 	],
 	"edges":[
 		{"id":"5e63158eb107bca4","fromNode":"cdac293e6f492a80","fromSide":"bottom","toNode":"c583919dfad6c638","toSide":"top"},
@@ -62,6 +67,11 @@
 		{"id":"0f5bd07ab0286662","fromNode":"c583919dfad6c638","fromSide":"right","toNode":"c0af99ccf2dd52a1","toSide":"left"},
 		{"id":"c781a21132b58d4f","fromNode":"c0af99ccf2dd52a1","fromSide":"right","toNode":"e5dacd953add4176","toSide":"left"},
 		{"id":"39e6eaa3c8e585df","fromNode":"e5dacd953add4176","fromSide":"bottom","toNode":"9b77f847cccf1e01","toSide":"right"},
-		{"id":"97a1be3d021e7318","fromNode":"1d0a950ddf223981","fromSide":"bottom","toNode":"ad169e3e5c15db30","toSide":"top"}
+		{"id":"97a1be3d021e7318","fromNode":"1d0a950ddf223981","fromSide":"bottom","toNode":"ad169e3e5c15db30","toSide":"top"},
+		{"id":"66ab5b19ae269dfd","fromNode":"8b829ce6951164a8","fromSide":"bottom","toNode":"0654fc202ab5b000","toSide":"top"},
+		{"id":"304a52446b1dd273","fromNode":"0654fc202ab5b000","fromSide":"bottom","toNode":"607ff6bc823dc33f","toSide":"top"},
+		{"id":"528443c91701420a","fromNode":"5e0c51af08263c1c","fromSide":"bottom","toNode":"8b829ce6951164a8","toSide":"top"},
+		{"id":"cf7aa708941b1dce","fromNode":"607ff6bc823dc33f","fromSide":"right","toNode":"4bb2571bef9faf4b","toSide":"left"},
+		{"id":"371e24266bca94ee","fromNode":"47e1b745b2eee7fd","fromSide":"bottom","toNode":"ec996f07c827adcc","toSide":"right"}
 	]
 }
