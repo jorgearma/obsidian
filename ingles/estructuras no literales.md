@@ -29,6 +29,25 @@ Con estas **15–20** ya estás en **B2 sólido**:
 - It makes sense (to)…
     
 - It doesn’t feel right
+- I was about to…
+- I wasn’t planning on
+- I had no choice but to
+- It got out of hand.
+- I think / I don’t think…
+    
+- To be honest,…
+    
+- That’s why…
+    
+- Which meant that…
+    
+- I was trying to…, but…
+    
+- It took me a while to…
+    
+- Even though…
+    
+- All in all,…
 
 
 # 🧠 **I didn’t mean to… / I didn’t mean for…**
