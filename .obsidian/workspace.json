@@ -41,12 +41,15 @@
             "id": "d2f705f11a277f4b",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "imagenes/images/Pasted image 20230104141222.png"
+                "file": "ingles/empezamos.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20230104141222"
+              "icon": "lucide-file",
+              "title": "empezamos"
             }
           },
           {
@@ -225,11 +228,12 @@
   },
   "active": "d2f705f11a277f4b",
   "lastOpenFiles": [
-    "Untitled 1.base",
-    "Untitled 1.canvas",
-    "ingles/conectoresç.md",
     "ingles/estructuras no literales.md",
     "ingles/empezamos.md",
+    "Untitled 1.canvas",
+    "ingles/conectoresç.md",
+    "imagenes/images/Pasted image 20230104141222.png",
+    "Untitled 1.base",
     "haking/metodologia.md",
     "haking/1. nmap.md",
     "ingles",
@@ -271,7 +275,6 @@
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/images/pwrdLogo75.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/images/pwrdLogo200.gif",
     "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/images/pwrdLogo175.gif",
-    "3.recuerdos/app.vacaciones/build/exe.linux-x86_64-3.11/lib/tk8.6/images/pwrdLogo150.gif",
     "conceptos_comunes/Untitled.canvas"
   ]
 }
