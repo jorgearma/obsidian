@@ -43,32 +43,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ingles/estructuras no literales.md",
+                "file": "ingles/PERFECT TENSES AVANZADOS.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "estructuras no literales"
-            }
-          },
-          {
-            "id": "4de1cc42c311ed4b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ingles/adjetivos/apariencia y rasgos fisicos.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "apariencia y rasgos fisicos"
+              "title": "PERFECT TENSES AVANZADOS"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -226,26 +211,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4de1cc42c311ed4b",
+  "active": "d2f705f11a277f4b",
   "lastOpenFiles": [
-    "ingles/adjetivos/Emociones y estados.md",
-    "ingles/adjetivos/Objetos y cosas.md",
-    "ingles/adjetivos/Opiniones y juicios.md",
-    "ingles/adjetivos/Situaciones y experiencias.md",
-    "ingles/adjetivos/personalidad y caracter.md",
-    "ingles/adjetivos/Personalidad y carácter.md",
-    "ingles/adjetivos/apariencia y rasgos fisicos.md",
-    "ingles/adjetivos",
+    "ingles/Predicciones con will.md",
+    "ingles/gramatica.md",
+    "ingles/PERFECT TENSES AVANZADOS.md",
     "ingles/notas.md",
     "ingles/gerundio.md",
-    "ingles/gramatica.md",
+    "ingles/estructuras no literales.md",
     "ingles/empezamos.md",
+    "ingles/conectores.md",
+    "ingles/Condicional.md",
     "ingles/promts.md",
+    "ingles/adjetivos/personalidad y caracter.md",
+    "ingles/adjetivos/Opiniones y juicios.md",
+    "ingles/adjetivos/Objetos y cosas.md",
+    "ingles/adjetivos/Emociones y estados.md",
+    "ingles/adjetivos/apariencia y rasgos fisicos.md",
+    "ingles/adjetivos/Situaciones y experiencias.md",
+    "ingles/adjetivos/Personalidad y carácter.md",
+    "ingles/adjetivos",
     "ingles/estructuras/Not only… but also.md",
     "haking/web enumeracion/tools web enum/curl.md",
-    "ingles/Predicciones con will.md",
-    "ingles/estructuras no literales.md",
-    "ingles/conectores.md",
     "ingles/estructuras",
     "Untitled 1.canvas",
     "imagenes/images/Pasted image 20230104141222.png",
@@ -259,8 +246,6 @@
     "haking/FTP-TCP 21.md",
     "haking/hash.md",
     "haking/importante.md",
-    "haking/notas.md",
-    "haking/tareas.md",
     "Untitled.canvas",
     "haking/SSH",
     "informes-seguridad/Documento_Tecnico_members.pdf",
