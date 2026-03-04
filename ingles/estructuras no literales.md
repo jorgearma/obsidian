@@ -48,6 +48,7 @@ Con estas **15–20** ya estás en **B2 sólido**:
 - Even though…
     
 - All in all,…
+- No matter how + adjetivo/adverbio + sujeto + verbo
 
 
 # 🧠 **I didn’t mean to… / I didn’t mean for…**

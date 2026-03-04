@@ -6,3 +6,8 @@ gerundios
 adjetivos
 adverbio
 
+
+
+
+
+I wish I had been more disciplined when I was younger.
