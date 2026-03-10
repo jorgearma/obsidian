@@ -50,7 +50,11 @@ Con estas **15–20** ya estás en **B2 sólido**:
 - All in all,…
 - No matter how + adjetivo/adverbio + sujeto + verbo
 - as much as
-
+- I can't help but
+- I would rather
+- I can't help but feel
+- I might as well
+- There's no point in
 
 # 🧠 **I didn’t mean to… / I didn’t mean for…**
 
