@@ -3,3 +3,7 @@ I don't feel like it = no me apetece
 afraid
 requires
 **come up along the way**.
+miss
+over
+overlook
+fewer
