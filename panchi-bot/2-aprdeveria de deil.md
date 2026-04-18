@@ -1,0 +1,1 @@
+cuando se pasa de la hora el turno ya no deveria de aparecer  en hoy , tambien cuando se cnacela el turno dado  deve de desaparcer 

@@ -1,13 +1,15 @@
 # ✅ Todo lo que necesito saber para ser Junior Medio Competente en Python
-	
+
+Ver mapa completo: [[Python/MOC-Python|MOC Python]]
+
 ## 🧠 1. Fundamentos del lenguaje
-- Variables y tipos de datos: `int`, `float`, `str`, `bool`
+- [[Python/Generico/Conceptos basicos/Variables|Variables]] y tipos de datos: `int`, `float`, `str`, `bool`
 - Conversión entre tipos: `str()`, `int()`, `float()`
 - Operadores: aritméticos, lógicos, de comparación
 - Condicionales: `if`, `elif`, `else`
-- Bucles: `for`, `while`, `break`, `continue`
+- [[Python/Generico/Conceptos basicos/Bucle FOR|Bucles]]: `for`, `while`, `break`, `continue`
 - List comprehensions: `[x for x in lista if ...]`
-- Funciones: `def`, argumentos, valores por defecto
+- [[Python/Generico/Conceptos basicos/Funciones|Funciones]]: `def`, argumentos, valores por defecto
 - Alcance de variables: `global`, `local`
 - Operador ternario: `a if cond else b`
 - Funciones útiles: `enumerate()`, `zip()`, `range()`, `len()`
@@ -15,10 +17,11 @@
 ---
 
 ## 🗂️ 2. Estructuras de datos básicas
-- Listas (`list`): acceso, modificación, métodos (`append`, `remove`)
-- Diccionarios (`dict`): claves, valores, `.get()`, `.items()`
-- Conjuntos (`set`): elementos únicos, operaciones de conjuntos
-- Tuplas (`tuple`): inmutables, desempaquetado
+- [[Python/data structure/list|Listas]] (`list`): acceso, modificación, métodos (`append`, `remove`)
+- [[Python/data structure/dict|Diccionarios]] (`dict`): claves, valores, `.get()`, `.items()`
+- [[Python/data structure/set|Conjuntos]] (`set`): elementos únicos, operaciones de conjuntos
+- [[Python/data structure/tuples|Tuplas]] (`tuple`): inmutables, desempaquetado
+- [[Python/data structure/strings|Strings]]: métodos, slicing, formateo
 - Verificación con `in`, estructuras anidadas
 
 ---
@@ -35,20 +38,21 @@
 - Importar módulos (`import`, `from`)
 - Crear tus propios módulos y reutilizar código
 - Uso de `if __name__ == "__main__"`
-- `venv`: entornos virtuales para aislar dependencias
+- [[Python/entorno virtual|`venv`]]: entornos virtuales para aislar dependencias
 - Crear paquetes básicos con `__init__.py`
 
 ---
 
 ## 🧪 5. Testing básico
-- Uso de `assert`
-- `unittest` o `pytest` para tests automáticos
-- Mocks básicos para simular datos o funciones externas
+- [[Python/pruebas unitarias/teoria|Teoría de testing]]
+- [[Python/pruebas unitarias/setUp|setUp]] — preparar el entorno de tests
+- [[Python/pruebas unitarias/mocks|Mocks]] — simular dependencias externas
+- [[Python/pruebas unitarias/patch|patch]] — parchear objetos en tests
 
 ---
 
 ## 📦 6. Librerías estándar útiles
-- `os`, `pathlib` → archivos y directorios
+- `os`, `pathlib` → [[Python/Gestión de Ficheros/With open()|archivos y directorios]]
 - `datetime` → fechas y horas
 - `json`, `csv` → manejo de datos estructurados
 - `random`, `math` → utilidades matemáticas
@@ -72,6 +76,8 @@
 - Crear y guardar registros: `add()`, `commit()`, `rollback()`
 - Manejo de errores con `SQLAlchemyError`
 - Relaciones uno-a-muchos (opcional)
+- [[bases de datos/sql/teoria sql|Teoría SQL]]
+- [[bases de datos/sql/comandos sql|Comandos SQL]]
 
 ---
 
@@ -89,15 +95,14 @@
 - Decoradores útiles: `@retry`, `@app.route`
 - Uso básico de `Redis` para caché o bloqueo de usuarios
 - `logging` en lugar de `print()`
-- Uso básico de Git: `init`, `add`, `commit`, `push`, `pull`
+- Uso básico de Git: `init`, `add`, `commit`, `push`, `pull` → [[git/fundamentos/instalacion|Git instalación]]
 
 ---
 
 ## 🧪 Proyectos recomendados para practicar
-- Bot de WhatsApp para pedidos (¡ya lo tienes!)
+- [[panchi-bot/MOC-panchi-bot|Bot de WhatsApp para pedidos]] (¡ya lo tienes!)
 - CRUD de tareas con Flask y SQLite
 - API que devuelve frases, recetas o datos de Pokémon
 - Registro de usuarios con validación y guardado en BBDD
 
 ---
-
