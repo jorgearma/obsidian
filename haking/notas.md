@@ -9,6 +9,6 @@ openssl s_client -connect 161.97.186.255:443 </dev/null 2>/dev/null \
 | openssl x509 -noout -text | grep -E "DNS:|Subject:"
 
 subfinder - funciona muy bien
-amass
-
+amass v3 y v5
+dig
 
