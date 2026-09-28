@@ -35,6 +35,21 @@ Contexto: aprendizaje personal, CTFs, máquinas de práctica.
 
 ---
 
+## OSINT
+
+- [[OSINT/checklist-maestra-selectores]] — **índice maestro**: taxonomía completa de qué mirar (28 categorías, marcable por caso)
+- [[OSINT/auditoria-osint-personal]] — metodología de auto-auditoría (5 áreas: identidad, credenciales, técnica, social, documental)
+- [[OSINT/investigacion-figuras-publicas-y-estafadores]] — investigación patrimonial/corporativa de políticos y estafadores (registros públicos, infra de scams, link analysis, cadena de custodia)
+- [[OSINT/selectores-no-obvios]] — checklist de pivotes poco obvios (analytics ID, favicon hash, gravatar, EXIF, recuperación de cuenta, git log, strava...)
+
+---
+
+## Hardware y consolas
+
+- [[hardware-consolas/xbox360-badupdate-abadavatar]] — Xbox 360 liberada por software (ABadAvatar + Aurora): setup, rutina, añadir juegos GOD, backup NAND
+
+---
+
 ## Protocolos y servicios
 
 - [[FTP-TCP 21]] — enumeración FTP

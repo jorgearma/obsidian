@@ -1,4 +1,4 @@
-s
+ -s
 
  flujo resumido para crear y clonar un repositorio con un entorno de desarrollo:
 

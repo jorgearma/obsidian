@@ -1,10 +1,10 @@
-|Patrón|Estructura|Uso|
-|---|---|---|
-|**1. Opinion pattern**|opinion → reason → example → conclusion|Dar opiniones|
-|**2. Explanation pattern**|idea → explanation → result|Explicar algo|
-|**3. Contrast pattern**|idea → contrast → conclusion|Comparar perspectivas|
-|**4. Experience pattern**|experience → result → reflection|Contar experiencias|
-|**5. Problem pattern**|problem → cause → solution|Hablar de problemas|
+| claudio cPatrón            | Estructura                              | Uso                   |
+| -------------------------- | --------------------------------------- | --------------------- |
+| **1. Opinion pattern**     | opinion → reason → example → conclusion | Dar opiniones         |
+| **2. Explanation pattern** | idea → explanation → result             | Explicar algo         |
+| **3. Contrast pattern**    | idea → contrast → conclusion            | Comparar perspectivas |
+| **4. Experience pattern**  | experience → result → reflection        | Contar experiencias   |
+| **5. Problem pattern**     | problem → cause → solution              | Hablar de problemas   |
 
 
 ### Progresión recomendada
