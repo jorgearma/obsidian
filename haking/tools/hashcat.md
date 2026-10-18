@@ -160,3 +160,36 @@ hashcat -m 1000 hash.txt --show --username
 
 "Si tienes hashes, tienes una oportunidad.  
 Si no crackea, no insistas: enumera más."
+---
+
+## 🎯 AD / Kerberos — modos y lección de wordlist (añadido 17 oct 2026)
+
+### Modos Kerberos (NO confundir)
+| Ataque | hashcat `-m` | De dónde sale |
+|---|---|---|
+| **AS-REP Roasting** | **18200** | `impacket-GetNPUsers` → ver [[impacket]], [[../AD/asrep-roasting]] |
+| **Kerberoasting** | **13100** (RC4) · 19600/19700 (AES) | `impacket-GetUserSPNs` → [[../AD/kerberoasting]] |
+
+```bash
+hashcat -m 18200 asrep.txt seasons.txt --force     # AS-REP
+hashcat -m 13100 kerb.txt  seasons.txt --force     # Kerberoasting
+hashcat -m 18200 asrep.txt --show                  # ver resultado (potfile)
+```
+
+### Lección: rockyou NO lo es todo → wordlist DIRIGIDA
+`Autumn2024!` y `Summer2023!` **no están en rockyou**: son patrones *estación+año+símbolo*,
+no filtraciones reales. Cuando sospechas un **patrón corporativo** (muy común), te generas
+una wordlist a medida:
+```bash
+for s in Spring Summer Autumn Fall Winter spring summer autumn fall winter; do
+  for y in 2021 2022 2023 2024 2025; do
+    for sym in '' '!' '1' '123' '2024!'; do echo "${s}${y}${sym}"; done
+  done
+done > seasons.txt
+```
+Alternativa: `rockyou.txt` + reglas (`-r /usr/share/hashcat/rules/best64.rule`) o máscaras.
+
+### El potfile (por qué a veces crackea "en 0 segundos")
+hashcat guarda lo ya roto en `~/.hashcat/hashcat.potfile`. Re-ejecutar muestra el
+resultado al instante aunque uses otra wordlist. Para re-crackear de cero:
+`--potfile-disable` o borrar el fichero.

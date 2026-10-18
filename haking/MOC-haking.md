@@ -12,6 +12,21 @@ Contexto: aprendizaje personal, CTFs, máquinas de práctica.
 
 ---
 
+## Active Directory y labs
+
+- [[montar-lab-ad]] — bitácora de construcción del lab AD propio (Nordwind): DC, OUs, usuarios, AGDLP, cliente
+- [[virtualbox-labs-config]] — **config perfecta de VMs en VirtualBox** (red interna, EFI/TPM, Win11, Guest Additions, snapshots, troubleshooting)
+- [[AD/dns-en-ad]] — por qué AD depende del DNS (SRV records)
+- [[AD/ldap]] — la "guía telefónica" del dominio: directorio + protocolo, el DN, enumeración con ldapsearch
+- [[AD/kerberos-kdc]] — Kerberos explicado: TGT→TGS, el KDC, y cómo cada ataque abusa de un cifrado del flujo
+
+**Herramientas visuales interactivas** (abrir el `.html` con doble clic → navegador):
+- `AD/ldap-arbol.html` — árbol LDAP navegable + "la lógica en 3 niveles" + el DN en vivo
+- `AD/permisos-corp.html` — empresa interactiva: los 2 poderes (recursos vía grupos / autoridad vía delegación en OU)
+- `AD/explorador-ad.html` — explorador tipo ADUC: directorio + recursos de red + PC local, con ficha y riesgo de cada objeto
+
+---
+
 ## Reconocimiento y enumeración
 
 ### Red

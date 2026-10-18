@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Árbol LDAP Nordwind</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: cabecera + dos columnas (árbol navegable | panel que explica el nodo); apila en móvil */
+  :root{
+    --bg:#f4f6f9; --surface:#ffffff; --surface-2:#eef1f6; --fg:#171d2b; --muted:#5a647a;
+    --border:#dce1ea; --border-strong:#c3cad8;
+    --domain:#b07410; --ou:#2f6fed; --container:#848ea3; --user:#1f9d6b; --group:#8457d6;
+    --computer:#1497b0; --svc:#e0702b;
+    --accent:#2f6fed; --accent-soft:#e6eefc;
+    --shadow:0 1px 2px rgba(20,30,50,.06),0 6px 20px rgba(20,30,50,.06);
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0e131d; --surface:#161d2a; --surface-2:#1d2636; --fg:#e7ecf4; --muted:#95a1b7;
+    --border:#28324492; --border-strong:#38445c;
+    --domain:#e4b654; --ou:#6aa0ff; --container:#7f8aa0; --user:#45cc92; --group:#a988ee;
+    --computer:#3bc1dc; --svc:#f08a52;
+    --accent:#6aa0ff; --accent-soft:#1b2740;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0e131d; --surface:#161d2a; --surface-2:#1d2636; --fg:#e7ecf4; --muted:#95a1b7;
+    --border:#28324492; --border-strong:#38445c;
+    --domain:#e4b654; --ou:#6aa0ff; --container:#7f8aa0; --user:#45cc92; --group:#a988ee;
+    --computer:#3bc1dc; --svc:#f08a52;
+    --accent:#6aa0ff; --accent-soft:#1b2740;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;
+       padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+       padding-block:clamp(18px,4vw,34px)}
+  .wrap{max-width:1080px;margin:0 auto}
+
+  header h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .sub{color:var(--muted);margin:.5rem 0 0;max-width:62ch;font-size:.98rem}
+  .lead{margin:.85rem 0 0;max-width:64ch;font-size:1.02rem}
+  .lead b{color:var(--accent)}
+
+  .toolbar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1.1rem}
+  button{font-family:var(--sans);font-size:.9rem;cursor:pointer;border-radius:9px;border:1px solid var(--border-strong);
+          background:var(--surface);color:var(--fg);padding:.55rem .9rem;font-weight:500;transition:transform .12s,background .15s,border-color .15s}
+  button:hover{background:var(--surface-2)}
+  button:active{transform:translateY(1px)}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.primary:hover{filter:brightness(1.06)}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:.5rem .95rem;margin-top:1rem;font-size:.8rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:.4rem}
+  .k{width:11px;height:11px;border-radius:3px;flex:none}
+
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.1rem;margin-top:1.1rem;align-items:start}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+  .tree{padding:.6rem .4rem .8rem;min-width:0;overflow-x:auto}
+
+  /* ---- tour caption ---- */
+  .tour{display:none;margin:0 .3rem .5rem;padding:.7rem .85rem;border-radius:11px;background:var(--accent-soft);
+        border:1px solid var(--accent);min-width:0}
+  .tour.on{display:block}
+  .tour .step{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .tour .txt{margin:.3rem 0 .6rem;font-size:.93rem}
+  .tour .txt b{color:var(--accent)}
+  .tour .nav{display:flex;gap:.5rem;align-items:center}
+  .tour .nav .spacer{flex:1}
+
+  /* ---- tree nodes ---- */
+  .node{}
+  .row{display:flex;align-items:center;gap:.5rem;padding:.3rem .5rem;border-radius:8px;cursor:pointer;
+       user-select:none;white-space:nowrap;transition:background .14s,box-shadow .14s}
+  .row:hover{background:var(--surface-2)}
+  .row:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  .row.sel{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+  .row.tour-hi{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft);animation:pulse 1.3s ease infinite}
+  @keyframes pulse{0%,100%{box-shadow:inset 0 0 0 2px var(--accent)}50%{box-shadow:inset 0 0 0 2px var(--accent),0 0 0 4px var(--accent-soft)}}
+
+  .caret{flex:none;width:14px;text-align:center;color:var(--muted);transition:transform .28s ease;font-size:.8rem}
+  .node.open>.row .caret{transform:rotate(90deg)}
+  .caret.leaf{visibility:hidden}
+  .dot{flex:none;width:12px;height:12px;border-radius:4px}
+  .label{font-family:var(--mono);font-size:.86rem;font-weight:500;min-width:0}
+  .label .rdn{color:var(--muted)}
+  .label .nm{color:var(--fg)}
+  .tag{font-size:.64rem;font-family:var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+       border:1px solid var(--border-strong);border-radius:20px;padding:.05rem .45rem;margin-left:.1rem}
+
+  .kids-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+  .node.open>.kids-wrap{grid-template-rows:1fr}
+  .kids-inner{overflow:hidden;padding-left:1.05rem;margin-left:.45rem;border-left:1px dashed var(--border-strong)}
+
+  /* ---- detail panel ---- */
+  .panel{padding:1.05rem 1.1rem 1.2rem;position:sticky;top:env(safe-area-inset-top,10px)}
+  @media (max-width:760px){.panel{position:static}}
+  .ptype{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;font-weight:600;letter-spacing:.06em;
+         text-transform:uppercase;padding:.28rem .6rem;border-radius:20px;color:#fff}
+  .pname{font-family:var(--mono);font-size:1.12rem;font-weight:600;margin:.7rem 0 .2rem;word-break:break-word}
+
+  .dnbox{margin:.9rem 0 .3rem;padding:.7rem .75rem;background:var(--surface-2);border-radius:10px;border:1px solid var(--border)}
+  .dnlabel{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.45rem}
+  .dn{display:flex;flex-wrap:wrap;gap:.25rem;font-family:var(--mono);font-size:.82rem}
+  .seg{opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;padding:.12rem .38rem;border-radius:6px;background:var(--surface);border:1px solid var(--border-strong)}
+  .seg.show{opacity:1;transform:none}
+  .seg.self{border-color:var(--accent);color:var(--accent)}
+  .comma{color:var(--muted);opacity:0;transition:opacity .3s}
+  .comma.show{opacity:1}
+  .dnaxis{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:.5rem}
+  .why{margin-top:.95rem;font-size:.96rem}
+  .why h3{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 .35rem}
+  .why p{margin:0}
+  .hint{margin-top:.9rem;font-size:.84rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.seg{opacity:1;transform:none}.comma{opacity:1}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>El árbol de Active Directory, por dentro</h1>
+    <p class="sub">Dominio <code>nordwind.local</code> · tu laboratorio. LDAP guarda el directorio como un árbol: expande las ramas y pulsa cualquier nodo para ver <b>por qué está ahí</b> y cómo se forma su dirección (DN).</p>
+    <p class="lead">La duda clave no es <i>qué</i> hay, sino <b>la lógica de cómo se divide</b>. Pulsa “Ver la lógica en 3 niveles” y te lo recorro paso a paso.</p>
+
+    <div class="toolbar">
+      <button class="primary" id="tourBtn">▶ Ver la lógica en 3 niveles</button>
+      <button id="expandAll">Expandir todo</button>
+      <button id="collapseAll">Colapsar</button>
+    </div>
+
+    <div class="legend" id="legend"></div>
+  </header>
+
+  <div class="grid">
+    <div class="card tree">
+      <div class="tour" id="tour">
+        <div class="step" id="tourStep"></div>
+        <div class="txt" id="tourTxt"></div>
+        <div class="nav">
+          <button id="tourPrev">← Atrás</button>
+          <button class="primary" id="tourNext">Siguiente →</button>
+          <span class="spacer"></span>
+          <button id="tourClose">Cerrar</button>
+        </div>
+      </div>
+      <div id="treeRoot"></div>
+    </div>
+
+    <div class="card panel" id="panel"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- paleta de tipos ----
+  var TYPES = {
+    domain:   {c:"var(--domain)",   label:"Dominio (raíz)"},
+    ou:       {c:"var(--ou)",        label:"OU — carpeta tuya"},
+    container:{c:"var(--container)", label:"Contenedor de fábrica"},
+    user:     {c:"var(--user)",      label:"Usuario"},
+    group:    {c:"var(--group)",     label:"Grupo"},
+    computer: {c:"var(--computer)",  label:"Equipo"},
+    svc:      {c:"var(--svc)",       label:"Servicio"}
+  };
+
+  // ---- datos del árbol (subconjunto real del lab) ----
+  var TREE = {
+    id:"root", rdn:"DC=nordwind,DC=local", type:"domain", tag:"",
+    why:"La raíz del árbol: todo el dominio cuelga de aquí. En un DN se escribe partida en trozos DC= (Domain Component): nordwind.local se convierte en DC=nordwind,DC=local.",
+    kids:[
+      {id:"c-users", rdn:"CN=Users", type:"container", tag:"built-in",
+        why:"Contenedor que crea AD solo. Aquí caían los usuarios por defecto. OJO: es un CN (contenedor), NO una OU → no puedes enlazarle una GPO ni delegar sobre él. Por eso creas tu propia OU=Nordwind."},
+      {id:"c-comp", rdn:"CN=Computers", type:"container", tag:"built-in",
+        why:"Igual que CN=Users pero para equipos. Built-in, no es OU. Un equipo recién unido cae aquí si no indicas otra OU con -OUPath."},
+      {id:"ou-dc", rdn:"OU=Domain Controllers", type:"ou", tag:"built-in",
+        why:"OU especial que AD crea para los Controladores de Dominio. DC01 vive aquí y tiene su propia política (Default Domain Controllers Policy).",
+        kids:[{id:"dc01s", rdn:"CN=DC01", type:"computer", tag:"", why:"El objeto del Controlador de Dominio (cuenta DC01$)."}]},
+      {id:"ou-nw", rdn:"OU=Nordwind", type:"ou", tag:"TUYA",
+        why:"TU OU raíz. Aquí metes TODO lo que gestionas tú, separado de lo de fábrica. Primer motivo de todo el diseño: tener un sitio propio sobre el que aplicar GPOs y delegar sin tocar los contenedores por defecto.",
+        kids:[
+          {id:"ou-admins", rdn:"OU=_Admins", type:"ou", tag:"",
+            why:"Cuentas privilegiadas, separadas a propósito. El '_' hace que ordene arriba del todo. Aislar a los admins en su OU = buena práctica de seguridad (tiering), y permite GPOs duras solo para ellos."},
+          {id:"ou-users", rdn:"OU=Users", type:"ou", tag:"nivel TIPO",
+            why:"NIVEL 2 (por TIPO de objeto): aquí van las PERSONAS. No se mezclan con equipos ni grupos. Dentro se subdivide por departamento.",
+            kids:[
+              {id:"ou-it", rdn:"OU=IT", type:"ou", tag:"nivel ATRIBUTO",
+                why:"NIVEL 3 (por ATRIBUTO): usuarios del departamento IT. Agrupas por departamento para aplicarles la misma GPO y delegar su administración juntos.",
+                kids:[
+                  {id:"u-piotr", rdn:"CN=Piotr Wisniewski", type:"user", tag:"", why:"Objeto usuario (hoja del árbol). Sus PERMISOS no vienen de esta OU, sino de los grupos de los que es miembro. La OU es el 'dónde está', no el 'qué puede'."},
+                  {id:"u-kat", rdn:"CN=Katarzyna Wojcik", type:"user", tag:"", why:"Otro usuario de IT. Comparte la OU IT → comparte políticas de IT."}
+                ]},
+              {id:"ou-mgmt", rdn:"OU=Management", type:"ou", tag:"nivel ATRIBUTO",
+                why:"Usuarios de Management. Mismo criterio: por departamento.",
+                kids:[
+                  {id:"u-jan", rdn:"CN=Jan Kowalski", type:"user", tag:"CEO", why:"Tu usuario de pruebas (el del klist). Está en Management, pero su acceso lo dan sus grupos (G_Management_Users → ...). OU ≠ permisos."},
+                  {id:"u-anna", rdn:"CN=Anna Nowak", type:"user", tag:"CFO", why:"Usuaria de Management."}
+                ]},
+              {id:"ou-sales", rdn:"OU=Sales", type:"ou", tag:"nivel ATRIBUTO",
+                why:"Usuarios de Sales.",
+                kids:[
+                  {id:"u-marek", rdn:"CN=Marek Lewandowski", type:"user", tag:"", why:"Usuario de Sales."},
+                  {id:"u-agn", rdn:"CN=Agnieszka Zielinska", type:"user", tag:"", why:"Usuaria de Sales."}
+                ]},
+              {id:"ou-hr", rdn:"OU=HR", type:"ou", tag:"", why:"Usuarios de HR. (Resto de deptos: Accounting, Logistics, Warehouse, mismo patrón.)"}
+            ]},
+          {id:"ou-computers", rdn:"OU=Computers", type:"ou", tag:"nivel TIPO",
+            why:"NIVEL 2 (por TIPO): las MÁQUINAS. Separadas de las personas. Dentro se subdivide por ROL del equipo.",
+            kids:[
+              {id:"ou-wks", rdn:"OU=Workstations", type:"ou", tag:"nivel ATRIBUTO",
+                why:"NIVEL 3 (por ATRIBUTO): PCs de empleado. Aquí moviste CL01 al unir con -OUPath.",
+                kids:[{id:"cl01", rdn:"CN=CL01", type:"computer", tag:"", why:"Objeto equipo (cuenta CL01$). Se creó al unir CL01 al dominio. Un equipo también es un 'principal de seguridad', con su propia contraseña."}]},
+              {id:"ou-srv", rdn:"OU=Servers", type:"ou", tag:"", why:"Servidores miembro (futuro FS01). Rol distinto a Workstations → GPOs distintas → por eso OU aparte."}
+            ]},
+          {id:"ou-groups", rdn:"OU=Groups", type:"ou", tag:"nivel TIPO",
+            why:"NIVEL 2 (por TIPO): los GRUPOS. Dentro se dividen por su naturaleza: Security (dan permisos) y Distribution (listas de correo).",
+            kids:[
+              {id:"ou-sec", rdn:"OU=Security", type:"ou", tag:"nivel ATRIBUTO",
+                why:"Grupos de seguridad: los que otorgan permisos. Aquí viven tus G_ (globales, por rol) y DL_ (domain local, por recurso) del modelo AGDLP.",
+                kids:[
+                  {id:"g-mgmt", rdn:"CN=G_Management_Users", type:"group", tag:"Global", why:"Grupo GLOBAL (por ROL): agrupa a los usuarios de Management. Jan es miembro de este. → ver AGDLP."},
+                  {id:"g-it", rdn:"CN=G_IT_Users", type:"group", tag:"Global", why:"Grupo GLOBAL de IT."},
+                  {id:"dl-sales", rdn:"CN=DL_FS01_Sales_Modify", type:"group", tag:"Domain Local", why:"Grupo DOMAIN LOCAL (por RECURSO): es el que RECIBE el permiso 'Modify' sobre el recurso. Dentro se anidan los grupos globales. → el otro extremo de AGDLP."}
+                ]},
+              {id:"ou-dist", rdn:"OU=Distribution", type:"ou", tag:"", why:"Grupos de distribución (listas de correo). No dan permisos de seguridad, por eso van aparte de Security."}
+            ]},
+          {id:"ou-svc", rdn:"OU=ServiceAccounts", type:"ou", tag:"nivel TIPO",
+            why:"NIVEL 2 (por TIPO): cuentas NO humanas (servicios). Aquí irá svc_sql con un SPN en la Fase 2 → semilla del Kerberoasting. Separarlas facilita vigilarlas (son objetivo típico)."}
+        ]}
+    ]
+  };
+
+  // ---- construir índice padre/elemento ----
+  var byId = {}, parentOf = {}, rowEl = {}, nodeEl = {};
+  (function index(n,parent){ byId[n.id]=n; parentOf[n.id]=parent; (n.kids||[]).forEach(function(k){index(k,n.id)}); })(TREE,null);
+
+  // ---- render recursivo ----
+  var root = document.getElementById("treeRoot");
+  function render(n){
+    var node = document.createElement("div");
+    node.className="node"; nodeEl[n.id]=node;
+    var hasKids=!!(n.kids&&n.kids.length);
+
+    var row=document.createElement("div");
+    row.className="row"; row.tabIndex=0; row.setAttribute("role","button"); rowEl[n.id]=row;
+
+    var caret=document.createElement("span");
+    caret.className="caret"+(hasKids?"":" leaf"); caret.textContent="▸"; row.appendChild(caret);
+
+    var dot=document.createElement("span");
+    dot.className="dot"; dot.style.background=TYPES[n.type].c; row.appendChild(dot);
+
+    var label=document.createElement("span"); label.className="label";
+    var eq=n.rdn.indexOf("=");
+    label.innerHTML='<span class="rdn">'+n.rdn.slice(0,eq+1)+'</span><span class="nm">'+n.rdn.slice(eq+1)+'</span>';
+    row.appendChild(label);
+
+    if(n.tag){var t=document.createElement("span");t.className="tag";t.textContent=n.tag;row.appendChild(t);}
+
+    node.appendChild(row);
+
+    function onActivate(e){ e.stopPropagation(); select(n.id); if(hasKids) node.classList.toggle("open"); }
+    row.addEventListener("click",onActivate);
+    row.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();onActivate(e);} });
+
+    if(hasKids){
+      var wrap=document.createElement("div"); wrap.className="kids-wrap";
+      var inner=document.createElement("div"); inner.className="kids-inner";
+      n.kids.forEach(function(k){ inner.appendChild(render(k)); });
+      wrap.appendChild(inner); node.appendChild(wrap);
+    }
+    return node;
+  }
+  root.appendChild(render(TREE));
+
+  // ---- leyenda ----
+  var leg=document.getElementById("legend");
+  Object.keys(TYPES).forEach(function(k){
+    var s=document.createElement("span");
+    s.innerHTML='<span class="k" style="background:'+TYPES[k].c+'"></span>'+TYPES[k].label;
+    leg.appendChild(s);
+  });
+
+  // ---- expandir/colapsar helpers ----
+  function openNode(id){ if(nodeEl[id]&&nodeEl[id].classList.contains("node")&&nodeEl[id].querySelector(".kids-wrap")) nodeEl[id].classList.add("open"); }
+  function openAncestors(id){ var p=parentOf[id]; while(p){ openNode(p); p=parentOf[p]; } }
+  document.getElementById("expandAll").onclick=function(){ Object.keys(nodeEl).forEach(function(id){openNode(id)}); };
+  document.getElementById("collapseAll").onclick=function(){ Object.keys(nodeEl).forEach(function(id){nodeEl[id].classList.remove("open")}); };
+
+  // ---- panel de detalle ----
+  var panel=document.getElementById("panel"), selId=null;
+  function dnChain(id){ var out=[],cur=id; while(cur){ out.push(byId[cur].rdn); cur=parentOf[cur]; } return out; } // leaf -> root
+
+  function select(id){
+    selId=id;
+    Object.keys(rowEl).forEach(function(k){ rowEl[k].classList.toggle("sel",k===id); });
+    var n=byId[id], ty=TYPES[n.type], chain=dnChain(id);
+
+    panel.innerHTML="";
+    var badge=document.createElement("span");
+    badge.className="ptype"; badge.style.background=ty.c; badge.textContent=ty.label;
+    panel.appendChild(badge);
+
+    var nm=document.createElement("div"); nm.className="pname"; nm.textContent=n.rdn; panel.appendChild(nm);
+
+    var box=document.createElement("div"); box.className="dnbox";
+    box.innerHTML='<div class="dnlabel">Su dirección (Distinguished Name)</div>';
+    var dn=document.createElement("div"); dn.className="dn"; box.appendChild(dn);
+    // escribir izquierda->derecha: el objeto primero, el dominio al final (como se escribe un DN real)
+    chain.forEach(function(seg,i){
+      if(i>0){var c=document.createElement("span");c.className="comma";c.textContent=",";dn.appendChild(c);}
+      var s=document.createElement("span"); s.className="seg"+(i===0?" self":""); s.textContent=seg; dn.appendChild(s);
+    });
+    var axis=document.createElement("div"); axis.className="dnaxis";
+    axis.innerHTML='<span>← el objeto (específico)</span><span>el dominio (general) →</span>';
+    box.appendChild(axis);
+    panel.appendChild(box);
+
+    // animar segmentos de izquierda (objeto) a derecha (dominio)
+    var segs=dn.querySelectorAll(".seg"), commas=dn.querySelectorAll(".comma");
+    segs.forEach(function(s,i){ setTimeout(function(){s.classList.add("show");},90*i+40); });
+    commas.forEach(function(c,i){ setTimeout(function(){c.classList.add("show");},90*(i+1));});
+
+    var why=document.createElement("div"); why.className="why";
+    why.innerHTML='<h3>Por qué está aquí</h3><p>'+n.why+'</p>'; panel.appendChild(why);
+
+    var hint=document.createElement("div"); hint.className="hint";
+    hint.innerHTML='El árbol baja <b>raíz → hoja</b>, pero el DN se escribe al revés, <b>hoja → raíz</b>. Mismo camino, orden invertido.';
+    panel.appendChild(hint);
+  }
+
+  // ---- recorrido guiado: la lógica en 3 niveles ----
+  var STEPS=[
+    { step:"Punto de partida",
+      txt:"AD crea solo unos <b>contenedores de fábrica</b> (CN=Users, CN=Computers). No son OUs: no les puedes poner políticas. Por eso tú creas tu propia <b>OU=Nordwind</b> y metes ahí todo lo que gestionas.",
+      open:["root"], hi:["c-users","c-comp","ou-nw"], sel:"ou-nw" },
+    { step:"Nivel 1 — por TIPO",
+      txt:"Dentro de OU=Nordwind, primero divides por <b>qué CLASE de objeto es</b>: personas (Users), máquinas (Computers), permisos (Groups), servicios (ServiceAccounts) y admins (_Admins). Nunca se mezclan.",
+      open:["root","ou-nw"], hi:["ou-users","ou-computers","ou-groups","ou-svc","ou-admins"], sel:"ou-users" },
+    { step:"Nivel 2 — por ATRIBUTO",
+      txt:"Dentro de cada tipo, subdivides por un <b>atributo con sentido</b>: los usuarios por <b>departamento</b> (IT, Sales, Management...), los equipos por <b>rol</b> (Workstations, Servers). Así aplicas la misma política a todo un grupo de golpe.",
+      open:["root","ou-nw","ou-users","ou-computers"], hi:["ou-it","ou-mgmt","ou-sales","ou-wks","ou-srv"], sel:"ou-it" },
+    { step:"La regla de oro",
+      txt:"La OU dice <b>DÓNDE está</b> el objeto (para organizar y poner políticas). Los <b>permisos</b> no vienen de la OU, vienen de los <b>grupos</b>. Por eso los grupos tienen su propia rama. Dónde ≠ qué puede.",
+      open:["root","ou-nw","ou-users","ou-mgmt","ou-groups","ou-sec"], hi:["u-jan","g-mgmt"], sel:"g-mgmt" }
+  ];
+  var ti=-1;
+  var tour=document.getElementById("tour"), tStep=document.getElementById("tourStep"), tTxt=document.getElementById("tourTxt");
+  function clearHi(){ Object.keys(rowEl).forEach(function(k){rowEl[k].classList.remove("tour-hi")}); }
+  function showStep(i){
+    ti=i; var s=STEPS[i];
+    s.open.forEach(openNode);
+    clearHi();
+    s.hi.forEach(function(id){ openAncestors(id); if(rowEl[id]) rowEl[id].classList.add("tour-hi"); });
+    if(s.sel) select(s.sel);
+    tStep.textContent="Paso "+(i+1)+" de "+STEPS.length+" · "+s.step;
+    tTxt.innerHTML=s.txt;
+    document.getElementById("tourPrev").disabled=(i===0);
+    var nx=document.getElementById("tourNext"); nx.textContent=(i===STEPS.length-1)?"Terminar ✓":"Siguiente →";
+    // llevar el nodo seleccionado a la vista
+    if(s.sel&&rowEl[s.sel]) rowEl[s.sel].scrollIntoView({block:"nearest",behavior:"smooth"});
+  }
+  function startTour(){ tour.classList.add("on"); showStep(0); }
+  function endTour(){ tour.classList.remove("on"); clearHi(); ti=-1; }
+  document.getElementById("tourBtn").onclick=startTour;
+  document.getElementById("tourClose").onclick=endTour;
+  document.getElementById("tourPrev").onclick=function(){ if(ti>0) showStep(ti-1); };
+  document.getElementById("tourNext").onclick=function(){ if(ti<STEPS.length-1) showStep(ti+1); else endTour(); };
+
+  // ---- estado inicial: dominio abierto, OU=Nordwind visible, nodo raíz seleccionado ----
+  openNode("root"); openNode("ou-nw");
+  select("root");
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+</body>
+</html>

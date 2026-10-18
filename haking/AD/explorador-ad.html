@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<title>Explorador AD Nordwind</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout estilo explorador de archivos (ADUC): árbol de carpetas a la izquierda, contenido + detalle a la derecha; apila en móvil */
+  :root{
+    --bg:#eef1f6; --chrome:#e3e8f0; --surface:#ffffff; --surface-2:#f4f6fa; --fg:#182031; --muted:#5c6679;
+    --border:#d4dae4; --border-strong:#bcc5d3; --accent:#2f6fed; --accent-soft:#e4edfd;
+    --danger:#c43b3b; --danger-soft:#fbe7e7; --warn:#b5781a; --warn-soft:#faf0dd; --tip:#0e8f9c; --tip-soft:#def2f4; --info:#4f46e5; --info-soft:#e8e6fd;
+    --dom:#b07410; --ou:#2f6fed; --cont:#8a93a6; --usr:#1f9d6b; --grp:#8457d6; --cmp:#1497b0; --svc:#e0702b; --net:#0e8f9c; --loc:#c43b3b;
+    --shadow:0 1px 2px rgba(20,30,50,.05),0 10px 26px rgba(20,30,50,.07);
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0c111a; --chrome:#141b27; --surface:#161e2c; --surface-2:#1b2433; --fg:#e7ecf4; --muted:#94a0b6;
+    --border:#283244; --border-strong:#3a465e; --accent:#6aa0ff; --accent-soft:#1a2640;
+    --danger:#f06a6a; --danger-soft:#3a1c1f; --warn:#e4b259; --warn-soft:#352916; --tip:#38c2d1; --tip-soft:#0f3039; --info:#8b84ff; --info-soft:#201d3f;
+    --dom:#e4b654; --ou:#6aa0ff; --cont:#7f8aa0; --usr:#45cc92; --grp:#a988ee; --cmp:#3bc1dc; --svc:#f08a52; --net:#38c2d1; --loc:#f06a6a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 28px rgba(0,0,0,.45); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0c111a; --chrome:#141b27; --surface:#161e2c; --surface-2:#1b2433; --fg:#e7ecf4; --muted:#94a0b6;
+    --border:#283244; --border-strong:#3a465e; --accent:#6aa0ff; --accent-soft:#1a2640;
+    --danger:#f06a6a; --danger-soft:#3a1c1f; --warn:#e4b259; --warn-soft:#352916; --tip:#38c2d1; --tip-soft:#0f3039; --info:#8b84ff; --info-soft:#201d3f;
+    --dom:#e4b654; --ou:#6aa0ff; --cont:#7f8aa0; --usr:#45cc92; --grp:#a988ee; --cmp:#3bc1dc; --svc:#f08a52; --net:#38c2d1; --loc:#f06a6a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 28px rgba(0,0,0,.45); color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;
+       padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(16px,3.5vw,28px)}
+  .wrap{max-width:1160px;margin:0 auto}
+  h1{font-size:clamp(1.4rem,3.6vw,1.95rem);font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .sub{color:var(--muted);margin:.45rem 0 0;max-width:70ch;font-size:.95rem}
+
+  .legend{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:.9rem 0;font-size:.76rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:.35rem}
+  .dot{width:10px;height:10px;border-radius:3px;flex:none}
+
+  .win{border:1px solid var(--border-strong);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
+  .titlebar{background:var(--chrome);border-bottom:1px solid var(--border);padding:.55rem .85rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted)}
+  .dots{display:flex;gap:.35rem}.dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .crumbs{display:flex;flex-wrap:wrap;gap:.2rem;align-items:center;font-family:var(--mono);font-size:.78rem;min-width:0}
+  .crumbs button{all:unset;cursor:pointer;color:var(--accent);padding:.05rem .25rem;border-radius:5px}
+  .crumbs button:hover{background:var(--accent-soft)}
+  .crumbs .sepc{color:var(--muted)}
+
+  .body{display:grid;grid-template-columns:270px 1fr;min-height:440px}
+  @media (max-width:760px){.body{grid-template-columns:1fr}.tree{max-height:230px;overflow:auto;border-right:0;border-bottom:1px solid var(--border)}}
+  .tree{background:var(--surface-2);border-right:1px solid var(--border);padding:.5rem .35rem;overflow:auto;min-width:0}
+  .pane{min-width:0;display:flex;flex-direction:column}
+
+  /* árbol */
+  .tnode{}
+  .trow{display:flex;align-items:center;gap:.4rem;padding:.28rem .4rem;border-radius:7px;cursor:pointer;white-space:nowrap;font-size:.84rem}
+  .trow:hover{background:var(--accent-soft)}
+  .trow.cur{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+  .trow:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  .tcaret{width:12px;text-align:center;color:var(--muted);transition:transform .25s;font-size:.7rem;flex:none}
+  .tnode.open>.trow .tcaret{transform:rotate(90deg)}
+  .tcaret.leaf{visibility:hidden}
+  .ico{flex:none;font-size:.95rem;width:1.1em;text-align:center}
+  .tkids{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s}
+  .tnode.open>.tkids{grid-template-rows:1fr}
+  .tkids-in{overflow:hidden;padding-left:.85rem;margin-left:.35rem;border-left:1px dashed var(--border-strong)}
+
+  /* lista de contenido */
+  .listhdr{display:grid;grid-template-columns:1.4fr .9fr 1.6fr;gap:.5rem;padding:.5rem .85rem;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:var(--surface-2)}
+  @media (max-width:520px){.listhdr{grid-template-columns:1.2fr 1fr}.listhdr .c3{display:none}}
+  .list{flex:1;overflow:auto}
+  .item{display:grid;grid-template-columns:1.4fr .9fr 1.6fr;gap:.5rem;align-items:center;padding:.5rem .85rem;cursor:pointer;border-bottom:1px solid var(--border);font-size:.88rem}
+  @media (max-width:520px){.item{grid-template-columns:1.2fr 1fr}.item .c3{display:none}}
+  .item:hover{background:var(--surface-2)}
+  .item.sel{background:var(--accent-soft)}
+  .item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .nmcell{display:flex;align-items:center;gap:.5rem;min-width:0}
+  .nmcell .nm{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .typecell{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+  .c3{font-size:.8rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .empty{padding:1.2rem .85rem;color:var(--muted);font-style:italic}
+
+  /* detalle */
+  .detail{border-top:2px solid var(--border-strong);background:var(--surface-2);padding:.9rem .95rem 1.05rem;max-height:340px;overflow:auto}
+  .detail.hide{display:none}
+  .dh{display:flex;align-items:center;gap:.6rem}
+  .dh .ico{font-size:1.5rem}
+  .dh .nm{font-weight:700;font-size:1.05rem;line-height:1.15;word-break:break-word}
+  .dh .ty{font-size:.78rem;color:var(--muted)}
+  .dn{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin:.5rem 0 0;word-break:break-all;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:.35rem .5rem}
+  .rows{margin:.7rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.25rem .8rem;font-size:.86rem}
+  .rows .k{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.2rem}
+  .chip{font-family:var(--mono);font-size:.72rem;background:var(--surface);border:1px solid var(--border-strong);border-radius:6px;padding:.08rem .4rem}
+  .note{margin-top:.8rem;border-radius:9px;padding:.6rem .7rem;font-size:.86rem;border:1px solid}
+  .note.danger{background:var(--danger-soft);border-color:var(--danger)}
+  .note.danger .lbl{color:var(--danger)}
+  .note.warn{background:var(--warn-soft);border-color:var(--warn)}
+  .note.warn .lbl{color:var(--warn)}
+  .note.tip{background:var(--tip-soft);border-color:var(--tip)}
+  .note.tip .lbl{color:var(--tip)}
+  .note.info{background:var(--info-soft);border-color:var(--info)}
+  .note.info .lbl{color:var(--info)}
+  .note .lbl{font-weight:700;display:block;margin-bottom:.15rem;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase}
+  .hintbar{font-size:.8rem;color:var(--muted);margin-top:.8rem;text-align:center}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <h1>Explorador de Active Directory · Nordwind</h1>
+  <p class="sub">Como el ADUC real: navega el <b>directorio</b> (OUs, usuarios, grupos, el DC), los <b>recursos de red</b> (shares) y <b>tu PC local</b>. Pulsa cualquier objeto para ver su papel y su riesgo. Fíjate en cómo cada mundo se divide por dentro.</p>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="win">
+    <div class="titlebar">
+      <span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>
+      <div class="crumbs" id="crumbs"></div>
+    </div>
+    <div class="body">
+      <div class="tree" id="tree"></div>
+      <div class="pane">
+        <div class="listhdr"><span>Nombre</span><span>Tipo</span><span class="c3">Descripción</span></div>
+        <div class="list" id="list"></div>
+        <div class="detail hide" id="detail"></div>
+      </div>
+    </div>
+  </div>
+  <p class="hintbar">💡 Carpetas (azules/grises) = navegas dentro. Objetos (usuario, grupo, equipo, share…) = abren su ficha abajo.</p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var IC={domain:"🌐",container:"🗂️",ou:"📁",user:"👤",group:"👥",computer:"💻",svc:"⚙️",net:"🗄️",share:"📂",adminshare:"🔒",pc:"💻",localfolder:"🖥️"};
+  var TY={domain:"Dominio",container:"Contenedor (built-in)",ou:"Unidad Organizativa (OU)",user:"Usuario",group:"Grupo",computer:"Equipo",svc:"Cuenta de servicio",net:"Recursos de red",share:"Carpeta compartida",adminshare:"Share administrativo",pc:"Este equipo (local)",localfolder:"Carpeta local"};
+  var COL={domain:"--dom",container:"--cont",ou:"--ou",user:"--usr",group:"--grp",computer:"--cmp",svc:"--svc",net:"--net",share:"--net",adminshare:"--loc",pc:"--loc",localfolder:"--loc"};
+
+  function U(name,role,dept,groups,access,authority,note,nt){
+    return {type:"user",kind:"leaf",name:name,desc:role+" · "+dept,
+      info:[["Rol",role],["Departamento",dept],["Miembro de",{chips:groups}],["Acceso (recursos)",access],["Autoridad (personas)",authority]],
+      note:note,nt:nt||"info"};
+  }
+  function G(name,scope,purpose,grants,note){
+    return {type:"group",kind:"leaf",name:name,desc:scope+" · "+purpose,
+      info:[["Ámbito",scope],["Para qué",purpose],["Otorga / contiene",grants]],note:note,nt:"tip"};
+  }
+
+  var ROOTS=[
+    {id:"dom",rdn:"DC=nordwind,DC=local",name:"nordwind.local",type:"domain",kind:"folder",
+     desc:"Raíz del directorio (el dominio)",
+     info:[["Tipo","Dominio raíz"],["Servicios en el DC","LDAP + Kerberos(KDC) + DNS"]],
+     note:"Todo cuelga de aquí. Se parte en DC=nordwind,DC=local. Dentro: lo de fábrica (CN=…) y lo tuyo (OU=Nordwind).",nt:"info",
+     kids:[
+      {id:"cnu",rdn:"CN=Users",name:"Users",type:"container",kind:"folder",desc:"Contenedor de fábrica (NO es OU)",
+       note:"AD lo crea solo. No le puedes enganchar GPO. Por eso creas tu propia OU=Nordwind.",nt:"warn",
+       kids:[
+         {type:"user",kind:"leaf",name:"Administrator",desc:"Admin del dominio (RID 500)",
+          info:[["Tipo","Usuario built-in"],["RID","500 (well-known)"],["Miembro de",{chips:["Domain Admins"]}]],
+          note:"La cuenta más buscada del examen. Admin de TODO el dominio y admin local de TODOS los PCs.",nt:"danger"},
+         {type:"group",kind:"leaf",name:"Domain Admins",desc:"Grupo privilegiado (RID 512)",
+          info:[["Ámbito","Global (built-in)"],["RID","512"],["Poder","Control total del dominio"]],
+          note:"Sus miembros son admin local de CADA equipo del dominio → ven tu escritorio y vuelcan credenciales de memoria. OBJETIVO FINAL del set de AD (40 pts).",nt:"danger"}
+       ]},
+      {id:"cnc",rdn:"CN=Computers",name:"Computers",type:"container",kind:"folder",desc:"Contenedor de fábrica para equipos",
+       note:"Donde cae un equipo recién unido si no indicas -OUPath. Built-in, no es OU.",nt:"warn",kids:[]},
+      {id:"oudc",rdn:"OU=Domain Controllers",name:"Domain Controllers",type:"ou",kind:"folder",desc:"OU especial de los DCs",
+       note:"OU que AD crea para los controladores. Tiene su GPO propia (Default Domain Controllers Policy).",nt:"info",
+       kids:[
+         {type:"computer",kind:"leaf",name:"DC01",desc:"Controlador de dominio",
+          info:[["Tipo","Equipo (DC)"],["Servicios","LDAP, KDC, DNS"],["IP","192.168.10.10"]],
+          note:"El cerebro. Guarda la base de datos de TODAS las credenciales (NTDS.dit). Comprometerlo = dominio entero.",nt:"danger"}
+       ]},
+      {id:"ounw",rdn:"OU=Nordwind",name:"Nordwind",type:"ou",kind:"folder",desc:"TU OU raíz (todo lo que gestionas)",
+       note:"Aquí metes TODO lo tuyo, separado de los contenedores de fábrica, para poder aplicar GPOs y delegar. Se divide por TIPO de objeto.",nt:"info",
+       kids:[
+        {id:"ouadm",rdn:"OU=_Admins",name:"_Admins",type:"ou",kind:"folder",desc:"Cuentas privilegiadas (aisladas)",
+         note:"Admins separados a propósito (tiering). El '_' ordena arriba. GPOs duras solo aquí.",nt:"warn",
+         kids:[
+           {type:"user",kind:"leaf",name:"adm.jan.kowalski",desc:"Cuenta admin de Jan",
+            info:[["Tipo","Usuario admin"],["Miembro de",{chips:["Domain Admins"]}]],
+            note:"Cuenta aparte para tareas admin. Si cae, cae el dominio. Por eso se vigila.",nt:"danger"}
+         ]},
+        {id:"ouusers",rdn:"OU=Users",name:"Users",type:"ou",kind:"folder",desc:"NIVEL TIPO · las personas",
+         note:"Primer corte por TIPO: aquí solo personas. Dentro se subdivide por DEPARTAMENTO (nivel atributo).",nt:"info",
+         kids:[
+           {id:"oudir",rdn:"OU=Dirección",name:"Dirección",type:"ou",kind:"folder",desc:"Departamento Dirección",kids:[
+             U("Jan Kowalski","CEO","Dirección",["G_Finanzas"],"Finanzas + Pública","Nadie","Ser CEO NO da autoridad sobre cuentas. Ve Finanzas, pero no gestiona a nadie. Acceso ≠ autoridad.","warn"),
+             U("Anna Nowak","CFO","Dirección",["G_Finanzas"],"Finanzas + Pública","Nadie","Dirección: mucho acceso a datos sensibles, cero administración de personas.","info")
+           ]},
+           {id:"ouven",rdn:"OU=Ventas",name:"Ventas",type:"ou",kind:"folder",desc:"Departamento Ventas",kids:[
+             U("Marek Lewandowski","Manager Ventas","Ventas",["G_Ventas_Users","G_Ventas_Mgrs"],"Ventas + Presupuestos + Pública","Delegado sobre OU=Ventas","Más grupos que sus comerciales (más recursos) Y delegación sobre OU=Ventas (resetea sus contraseñas). NO toca Logística: otra OU.","tip"),
+             U("Agnieszka Zielinska","Comercial","Ventas",["G_Ventas_Users"],"Ventas + Pública","Nadie","Empleada rasa: solo su carpeta de depto, sin poder sobre nadie.","info")
+           ]},
+           {id:"oulog",rdn:"OU=Logística",name:"Logística",type:"ou",kind:"folder",desc:"Departamento Logística",kids:[
+             U("Pawel Szymanski","Manager Logística","Logística",["G_Logi_Users","G_Logi_Mgrs"],"Logística + Planificación + Pública","Delegado sobre OU=Logística","Igual que Marek pero en SU OU. Su poder se corta en la frontera de Logística: no toca Ventas.","tip"),
+             U("Robert Dabrowski","Operario","Logística",["G_Logi_Users"],"Logística + Pública","Nadie","Empleado de almacén, acceso mínimo.","info")
+           ]},
+           {id:"ouit",rdn:"OU=IT",name:"IT",type:"ou",kind:"folder",desc:"Departamento IT",kids:[
+             U("Piotr Wisniewski","IT Manager","IT",["G_IT_Users"],"Carpeta IT + Pública","Delegado sobre TODA la empresa","IT/Helpdesk: delegación company-wide → puede resetear contraseñas de CUALQUIERA. El alcance lo decides tú al delegar. Objetivo jugoso para un atacante.","danger"),
+             U("Katarzyna Wojcik","IT (Helpdesk)","IT",["G_IT_Users"],"Carpeta IT + Pública","Delegado sobre TODA la empresa","Helpdesk con poder amplio sobre cuentas. Si la comprometes, llegas a todos.","danger")
+           ]},
+           {id:"ourh",rdn:"OU=RRHH",name:"RRHH",type:"ou",kind:"folder",desc:"Departamento RRHH",kids:[
+             U("Magdalena Kaminska","Manager RRHH","RRHH",["G_RRHH_Users"],"Expedientes RRHH (sensible) + Pública","Nadie","Manager con acceso a datos MUY sensibles, pero SIN autoridad sobre cuentas. Manager ≠ admin.","warn")
+           ]}
+         ]},
+        {id:"oucomp",rdn:"OU=Computers",name:"Computers",type:"ou",kind:"folder",desc:"NIVEL TIPO · las máquinas",
+         note:"Segundo corte por TIPO: los equipos. Dentro se subdivide por ROL (Workstations / Servers).",nt:"info",
+         kids:[
+           {id:"ouwks",rdn:"OU=Workstations",name:"Workstations",type:"ou",kind:"folder",desc:"PCs de empleado",kids:[
+             {type:"computer",kind:"leaf",name:"CL01",desc:"PC de empleado (Win11)",
+              info:[["Tipo","Equipo (workstation)"],["Cuenta","CL01$"],["Admin local","Administradores + Domain Admins"]],
+              note:"Tu PC. Sus archivos/escritorio son 'privados' solo frente a otros USUARIOS. El admin local y CUALQUIER Domain Admin lo ven entero y vuelcan sus credenciales. Tu PC no es una isla.",nt:"danger"}
+           ]},
+           {id:"ousrv",rdn:"OU=Servers",name:"Servers",type:"ou",kind:"folder",desc:"Servidores miembro",kids:[
+             {type:"computer",kind:"leaf",name:"FS01",desc:"Servidor de archivos",
+              info:[["Tipo","Servidor miembro"],["Aloja","Los shares \\\\FS01\\…"]],
+              note:"Donde viven las carpetas compartidas (mundo 'Recursos de red' del árbol).",nt:"info"}
+           ]}
+         ]},
+        {id:"ougrp",rdn:"OU=Groups",name:"Groups",type:"ou",kind:"folder",desc:"NIVEL TIPO · los grupos",
+         note:"Tercer corte por TIPO: los grupos. Security (dan permisos) y Distribution (correo). Aquí vive el modelo AGDLP.",nt:"info",
+         kids:[
+           {id:"ousec",rdn:"OU=Security",name:"Security",type:"ou",kind:"folder",desc:"Grupos que dan permisos",kids:[
+             G("G_Ventas_Users","Global","por ROL (comerciales de Ventas)","Contiene a los usuarios de Ventas. Se anida en DL_Ventas_Modify.","Lado 'personas' de AGDLP: agrupa por rol."),
+             G("G_Ventas_Mgrs","Global","por ROL (managers de Ventas)","Da el extra de managers (presupuestos).","El 'más poder' del manager = pertenecer a un grupo extra."),
+             G("G_IT_Users","Global","por ROL (IT)","Acceso a la carpeta IT.","—"),
+             G("DL_Ventas_Modify","Domain Local","por RECURSO (\\\\FS01\\Ventas)","TIENE el permiso Modify sobre la carpeta Ventas. Dentro se anida G_Ventas_Users.","Lado 'recurso' de AGDLP: el permiso SOLO se pone aquí."),
+             G("DL_IT_FullControl","Domain Local","por RECURSO (\\\\FS01\\IT)","Control total sobre la carpeta IT.","—"),
+             G("DL_Publico_Read","Domain Local","por RECURSO (\\\\FS01\\Publico)","Lectura para todos. Contiene a todos los G_.","Da el acceso a la carpeta pública.")
+           ]},
+           {id:"oudist",rdn:"OU=Distribution",name:"Distribution",type:"ou",kind:"folder",desc:"Listas de correo",kids:[
+             {type:"group",kind:"leaf",name:"DL_Boletin_Empresa",desc:"Distribución · correo",
+              info:[["Ámbito","Distribution"],["Para qué","Lista de correo, NO da permisos"]],
+              note:"Los grupos de distribución solo agrupan para enviar correo. No otorgan accesos de seguridad → por eso van separados de Security.",nt:"info"}
+           ]}
+         ]},
+        {id:"ousvc",rdn:"OU=ServiceAccounts",name:"ServiceAccounts",type:"ou",kind:"folder",desc:"NIVEL TIPO · cuentas no humanas",
+         note:"Cuentas de servicios (no personas). Aisladas para vigilarlas: son objetivo típico.",nt:"warn",
+         kids:[
+           {type:"svc",kind:"leaf",name:"svc_sql",desc:"Cuenta de servicio (MSSQL)",
+            info:[["Tipo","Cuenta de servicio"],["SPN","MSSQLSvc/fs01.nordwind.local:1433"],["Riesgo","Kerberoasting"]],
+            note:"Tiene un SPN → cualquiera puede pedir su ticket (TGS) y crackear su contraseña OFFLINE. Esto plantarás en la Fase 2 (Kerberoasting).",nt:"danger"}
+         ]}
+       ]}
+     ]},
+
+    {id:"net",rdn:"\\\\FS01",name:"Recursos de red (\\\\FS01)",type:"net",kind:"folder",
+     desc:"Carpetas compartidas en el servidor",
+     note:"Mundo DISTINTO del directorio: aquí están las CARPETAS reales. Accedes DESDE tu PC por la red; entras o no según tus grupos.",nt:"info",
+     kids:[
+       {type:"share",kind:"leaf",name:"Publico",desc:"Lectura para todos",
+        info:[["Ruta","\\\\FS01\\Publico"],["Permiso","Lectura"],["Lo da","DL_Publico_Read"]],
+        note:"La carpeta común de la empresa (tablón, plantillas). NO es tu escritorio: vive en el servidor y la ve todo el mundo. En pentest, un share legible por todos suele esconder credenciales.",nt:"tip"},
+       {type:"share",kind:"leaf",name:"Ventas",desc:"Modify · Ventas",
+        info:[["Ruta","\\\\FS01\\Ventas"],["Permiso","Modify"],["Lo da","DL_Ventas_Modify ← G_Ventas_Users"]],
+        note:"AGDLP en acción: el permiso está en el DL; los usuarios lo heredan por el G anidado. Agnieszka entra; Pawel (Logística) no.",nt:"tip"},
+       {type:"share",kind:"leaf",name:"IT",desc:"Control total · IT",
+        info:[["Ruta","\\\\FS01\\IT"],["Permiso","Full Control"],["Lo da","DL_IT_FullControl"]],
+        note:"Recursos del equipo de IT.",nt:"info"},
+       {type:"share",kind:"leaf",name:"RRHH",desc:"Modify · RRHH (sensible)",
+        info:[["Ruta","\\\\FS01\\RRHH"],["Permiso","Modify"],["Lo da","DL_RRHH_Modify"]],
+        note:"Datos sensibles. Solo RRHH. Un atacante que lea esto se lleva información personal valiosa.",nt:"warn"},
+       {type:"adminshare",kind:"leaf",name:"C$",desc:"Share administrativo (oculto)",
+        info:[["Ruta","\\\\FS01\\C$"],["Acceso","Solo administradores"]],
+        note:"El disco C: entero, compartido oculto para admins. Si tienes admin, entras en remoto y lo tocas todo → movimiento lateral clásico.",nt:"danger"}
+     ]},
+
+    {id:"pc",rdn:"CL01 (C:)",name:"Tu PC local (CL01)",type:"pc",kind:"folder",
+     desc:"El equipo local del usuario",
+     note:"Mundo LOCAL: lo que vive en TU máquina, no en AD. AD solo te autenticó al entrar.",nt:"info",
+     kids:[
+       {type:"localfolder",kind:"leaf",name:"Escritorio",desc:"C:\\Users\\jan\\Desktop",
+        info:[["Ubicación","Local (en el PC)"],["Privado frente a","otros usuarios"],["Visible para","admin local + Domain Admins"]],
+        note:"LOCAL y privado... solo frente a otros usuarios normales. El admin local y CUALQUIER Domain Admin lo ven entero. No es un recurso de AD: no se gestiona con grupos del dominio.",nt:"warn"},
+       {type:"localfolder",kind:"leaf",name:"Documentos",desc:"C:\\Users\\jan\\Documents",
+        info:[["Ubicación","Local (en el PC)"],["Visible para","admin local + Domain Admins"]],
+        note:"Igual que el escritorio: local, pero cualquier admin de la máquina lo ve.",nt:"warn"},
+       {type:"adminshare",kind:"leaf",name:"C$",desc:"\\\\CL01\\C$",
+        info:[["Ruta","\\\\CL01\\C$"],["Acceso","Solo admins"]],
+        note:"Un Domain Admin se conecta aquí en remoto y lee/toca tu disco entero, incluido el escritorio. Así se vuelcan credenciales tras comprometer a un admin.",nt:"danger"}
+     ]}
+  ];
+
+  // índice
+  var byId={},parentOf={},seq=0;
+  function idx(n,parent){ if(!n.id)n.id="n"+(seq++); byId[n.id]=n; parentOf[n.id]=parent; (n.kids||[]).forEach(function(k){idx(k,n.id);}); }
+  ROOTS.forEach(function(r){idx(r,null);});
+
+  // leyenda
+  var lg=document.getElementById("legend");
+  [["domain","Dominio"],["ou","OU (tuya)"],["container","Contenedor"],["user","Usuario"],["group","Grupo"],["computer","Equipo"],["svc","Servicio"],["share","Share de red"],["localfolder","Local"]].forEach(function(p){
+    var s=document.createElement("span");
+    s.innerHTML='<span class="dot" style="background:var('+COL[p[0]]+')"></span>'+IC[p[0]]+" "+p[1];
+    lg.appendChild(s);
+  });
+
+  // árbol (solo folders)
+  var treeEl=document.getElementById("tree"),trowEl={},tnodeEl={};
+  function renderTree(n){
+    var node=document.createElement("div"); node.className="tnode"; tnodeEl[n.id]=node;
+    var folders=(n.kids||[]).filter(function(k){return k.kind==="folder";});
+    var row=document.createElement("div"); row.className="trow"; row.tabIndex=0; trowEl[n.id]=row;
+    var car=document.createElement("span"); car.className="tcaret"+(folders.length?"":" leaf"); car.textContent="▸"; row.appendChild(car);
+    var ic=document.createElement("span"); ic.className="ico"; ic.textContent=IC[n.type]; ic.style.color="var("+COL[n.type]+")"; row.appendChild(ic);
+    var lab=document.createElement("span"); lab.textContent=n.name; row.appendChild(lab);
+    row.onclick=function(){ openTo(n.id); openFolder(n.id); node.classList.toggle("open"); };
+    row.onkeydown=function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();row.onclick();} };
+    node.appendChild(row);
+    if(folders.length){
+      var kw=document.createElement("div"); kw.className="tkids";
+      var ki=document.createElement("div"); ki.className="tkids-in";
+      folders.forEach(function(k){ ki.appendChild(renderTree(k)); });
+      kw.appendChild(ki); node.appendChild(kw);
+    }
+    return node;
+  }
+  ROOTS.forEach(function(r){ treeEl.appendChild(renderTree(r)); });
+
+  function openTo(id){ var p=parentOf[id]; while(p){ if(tnodeEl[p]) tnodeEl[p].classList.add("open"); p=parentOf[p]; } }
+
+  // path/breadcrumb
+  function path(id){ var a=[],c=id; while(c){ a.unshift(byId[c]); c=parentOf[c]; } return a; }
+  function dnOf(id){ var a=[],c=id; while(c){ a.push(byId[c].rdn||byId[c].name); c=parentOf[c]; }
+    return (byId[id].type&&["domain","ou","container","user","group","computer","svc"].indexOf(byId[id].type)>=0)?a.join(","):byId[id].rdn||byId[id].name; }
+
+  // contenido
+  var listEl=document.getElementById("list"),crumbEl=document.getElementById("crumbs"),detailEl=document.getElementById("detail");
+  var curFolder=null,selLeaf=null;
+
+  function openFolder(id){
+    curFolder=id; selLeaf=null; detailEl.classList.add("hide");
+    Object.keys(trowEl).forEach(function(k){trowEl[k].classList.toggle("cur",k===id);});
+    // breadcrumb
+    crumbEl.innerHTML="";
+    path(id).forEach(function(n,i){
+      if(i>0){var s=document.createElement("span");s.className="sepc";s.textContent="›";crumbEl.appendChild(s);}
+      var b=document.createElement("button"); b.textContent=n.name; b.onclick=function(){openTo(n.id);if(tnodeEl[n.id])tnodeEl[n.id].classList.add("open");openFolder(n.id);}; crumbEl.appendChild(b);
+    });
+    // lista de hijos
+    listEl.innerHTML="";
+    var kids=byId[id].kids||[];
+    if(!kids.length){ listEl.innerHTML='<div class="empty">Carpeta vacía.</div>'; return; }
+    kids.forEach(function(k){
+      var it=document.createElement("div"); it.className="item"; it.tabIndex=0;
+      it.innerHTML='<span class="nmcell"><span class="ico" style="color:var('+COL[k.type]+')">'+IC[k.type]+'</span><span class="nm">'+k.name+'</span></span>'+
+        '<span class="typecell">'+TY[k.type]+'</span>'+
+        '<span class="c3">'+(k.desc||"")+'</span>';
+      it.onclick=function(){ if(k.kind==="folder"){ openTo(k.id); if(tnodeEl[k.id])tnodeEl[k.id].classList.add("open"); openFolder(k.id); } else { showDetail(k.id,it); } };
+      it.onkeydown=function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();it.onclick();} };
+      listEl.appendChild(it);
+    });
+  }
+
+  function showDetail(id,itEl){
+    selLeaf=id;
+    document.querySelectorAll(".item.sel").forEach(function(e){e.classList.remove("sel");});
+    if(itEl) itEl.classList.add("sel");
+    var n=byId[id];
+    var h='<div class="dh"><span class="ico" style="color:var('+COL[n.type]+')">'+IC[n.type]+'</span>'+
+      '<span><span class="nm">'+n.name+'</span><br><span class="ty">'+TY[n.type]+'</span></span></div>';
+    h+='<div class="dn">'+dnOf(id)+'</div>';
+    if(n.info&&n.info.length){
+      h+='<div class="rows">';
+      n.info.forEach(function(r){
+        var v=r[1];
+        if(v&&v.chips){ v='<span class="chips">'+v.chips.map(function(c){return '<span class="chip">'+c+'</span>';}).join("")+'</span>'; }
+        h+='<span class="k">'+r[0]+'</span><span>'+v+'</span>';
+      });
+      h+='</div>';
+    }
+    if(n.note){
+      var lbl={danger:"⚠ Riesgo / clave de ataque",warn:"⚠ Ojo",tip:"💡 Idea",info:"ℹ Nota"}[n.nt||"info"];
+      h+='<div class="note '+(n.nt||"info")+'"><span class="lbl">'+lbl+'</span>'+n.note+'</div>';
+    }
+    detailEl.innerHTML=h; detailEl.classList.remove("hide");
+    detailEl.scrollIntoView({block:"nearest",behavior:"smooth"});
+  }
+
+  // inicio: abrir OU=Nordwind (muestra la división por TIPO)
+  openTo("ounw"); tnodeEl["ounw"].classList.add("open"); openFolder("ounw");
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+
+</body>
+</html>

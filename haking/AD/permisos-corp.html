@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<title>Permisos en Nordwind Corp</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: cabecera + selector de modo; mapa de empresa (zonas por depto) a la izquierda, panel de la persona a la derecha; apila en móvil */
+  :root{
+    --bg:#f4f6f9; --surface:#ffffff; --surface-2:#eef1f6; --fg:#161d2b; --muted:#5b6578;
+    --border:#dce1ea; --border-strong:#c3cad8;
+    --accent:#4f46e5;
+    --a:#0e8f9c; --a-soft:#dff2f4;           /* azul-teal = acceso a RECURSOS */
+    --b:#1c9b54; --b-soft:#e1f4e9;           /* verde    = autoridad sobre PERSONAS */
+    --shadow:0 1px 2px rgba(20,30,50,.05),0 8px 22px rgba(20,30,50,.06);
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0e131d; --surface:#161d2a; --surface-2:#1d2636; --fg:#e7ecf4; --muted:#95a1b7;
+    --border:#283244; --border-strong:#39455d;
+    --accent:#8b84ff; --a:#38c2d1; --a-soft:#0f3039; --b:#44cc83; --b-soft:#0f3421;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.4); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0e131d; --surface:#161d2a; --surface-2:#1d2636; --fg:#e7ecf4; --muted:#95a1b7;
+    --border:#283244; --border-strong:#39455d;
+    --accent:#8b84ff; --a:#38c2d1; --a-soft:#0f3039; --b:#44cc83; --b-soft:#0f3421;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.4); color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;
+       padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+       padding-block:clamp(18px,4vw,32px)}
+  .wrap{max-width:1140px;margin:0 auto}
+
+  h1{font-size:clamp(1.5rem,4vw,2.05rem);font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .sub{color:var(--muted);margin:.5rem 0 0;max-width:66ch}
+
+  .keys{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+  .key{flex:1 1 230px;min-width:0;border-radius:12px;padding:.7rem .85rem;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow)}
+  .key .t{font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+  .key .d{color:var(--muted);font-size:.84rem;margin-top:.25rem}
+  .chip-a{color:var(--a)} .chip-b{color:var(--b)}
+  .sw{width:13px;height:13px;border-radius:4px;flex:none}
+
+  .modes{display:flex;gap:.3rem;margin-top:1.1rem;background:var(--surface-2);padding:.3rem;border-radius:11px;width:fit-content;max-width:100%;flex-wrap:wrap}
+  .modes button{border:0;background:transparent;color:var(--muted);font-family:var(--sans);font-size:.86rem;font-weight:600;
+                padding:.5rem .85rem;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  .modes button.on{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
+  .modes button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .grid{display:grid;grid-template-columns:1.25fr 1fr;gap:1.1rem;margin-top:1.1rem;align-items:start}
+  @media (max-width:820px){.grid{grid-template-columns:1fr}}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+  .map{padding:.9rem}
+  .maphint{font-size:.82rem;color:var(--muted);margin:0 0 .7rem}
+  .zones{display:flex;flex-wrap:wrap;gap:.7rem}
+  .zone{flex:1 1 180px;min-width:0;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:.6rem}
+  .zone h3{margin:0 0 .5rem;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .ppl{display:flex;flex-direction:column;gap:.45rem}
+
+  .person{display:flex;align-items:center;gap:.55rem;padding:.5rem .55rem;border-radius:9px;cursor:pointer;
+          background:var(--surface);border:1px solid var(--border);transition:transform .12s,box-shadow .15s,opacity .15s,border-color .15s;position:relative}
+  .person:hover{transform:translateY(-1px)}
+  .person:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .person .av{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:.8rem;color:#fff}
+  .person .meta{min-width:0}
+  .person .nm{font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .person .ro{font-size:.74rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .person.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+  /* halo verde = esta persona está bajo la autoridad del seleccionado */
+  .person.authed{box-shadow:0 0 0 2px var(--b);border-color:var(--b)}
+  .person .badge{position:absolute;top:-7px;right:-7px;font-size:.62rem;background:var(--b);color:#fff;border-radius:20px;padding:.05rem .4rem;font-weight:600;opacity:0;transition:opacity .15s}
+  .person.authed .badge{opacity:1}
+  body.mode-a .person.authed{box-shadow:none;border-color:var(--border)} /* en modo recursos, ocultar halos */
+  body.mode-a .person.authed .badge{opacity:0}
+  body.mode-b .dimA{opacity:.35}
+  body.mode-a .dimB{opacity:.35}
+
+  /* panel */
+  .panel{padding:1.05rem 1.1rem 1.2rem;position:sticky;top:env(safe-area-inset-top,12px)}
+  @media (max-width:820px){.panel{position:static}}
+  .phead{display:flex;align-items:center;gap:.7rem}
+  .phead .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;flex:none}
+  .phead .nm{font-weight:700;font-size:1.12rem;line-height:1.2}
+  .phead .ro{color:var(--muted);font-size:.85rem}
+  .deptpill{display:inline-block;margin-top:.2rem;font-size:.7rem;font-family:var(--mono);color:var(--muted);border:1px solid var(--border-strong);border-radius:20px;padding:.05rem .45rem}
+
+  .block{margin-top:1.1rem;border-radius:12px;padding:.85rem .9rem;border:1px solid var(--border)}
+  .block.A{background:var(--a-soft);border-color:var(--a)}
+  .block.B{background:var(--b-soft);border-color:var(--b)}
+  .block .bh{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.9rem}
+  .block.A .bh{color:var(--a)} .block.B .bh{color:var(--b)}
+  .block .bnote{font-size:.8rem;color:var(--muted);margin:.15rem 0 .6rem}
+  body.mode-a .block.B{display:none} body.mode-b .block.A{display:none}
+
+  .res{display:flex;align-items:center;gap:.5rem;padding:.3rem 0;font-size:.9rem}
+  .res .ico{width:18px;text-align:center;flex:none}
+  .res.no{color:var(--muted);opacity:.7}
+  .res .rn{min-width:0}
+
+  .chains{margin-top:.6rem;display:flex;flex-direction:column;gap:.5rem}
+  .chain{font-family:var(--mono);font-size:.74rem;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center;
+         background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.45rem .5rem}
+  .chain .seg{padding:.1rem .35rem;border-radius:6px;background:var(--surface-2);white-space:nowrap}
+  .chain .seg.p{color:var(--accent)} .chain .seg.r{color:var(--a)}
+  .chain .ar{color:var(--muted)}
+
+  .authtxt{font-size:.92rem}
+  .authtxt b{color:var(--b)}
+  .scope{font-family:var(--mono);font-size:.78rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:.1rem .4rem}
+  .empty{color:var(--muted);font-style:italic;font-size:.88rem}
+
+  .teach{margin-top:1rem;font-size:.86rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.7rem}
+  .teach b{color:var(--fg)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <h1>Permisos en Nordwind Corp</h1>
+  <p class="sub">Elige a cualquier empleado y mira sus <b>dos tipos de poder</b> por separado. La clave: un grupo te da acceso a <i>cosas</i>; la delegación sobre una OU te da autoridad sobre <i>personas</i> — y esa autoridad se corta en la frontera del departamento.</p>
+
+  <div class="keys">
+    <div class="key">
+      <div class="t"><span class="sw" style="background:var(--a)"></span><span class="chip-a">Poder A — Recursos</span></div>
+      <div class="d">A qué carpetas/apps accede. Se da por <b>grupos</b> (modelo AGDLP). "Más poder" = está en más grupos.</div>
+    </div>
+    <div class="key">
+      <div class="t"><span class="sw" style="background:var(--b)"></span><span class="chip-b">Poder B — Autoridad</span></div>
+      <div class="d">Sobre qué <b>personas</b> manda (resetear contraseñas, gestionar cuentas). Se da por <b>delegación sobre una OU</b>. El límite = la OU.</div>
+    </div>
+  </div>
+
+  <div class="modes" role="tablist" aria-label="Modo de vista">
+    <button data-mode="both" class="on">Ver ambos</button>
+    <button data-mode="a">Solo recursos (A)</button>
+    <button data-mode="b">Solo autoridad (B)</button>
+  </div>
+
+  <div class="grid">
+    <div class="card map">
+      <p class="maphint" id="maphint">Pulsa una persona. En modo <b>Autoridad</b>, se marcarán en verde las personas sobre las que manda.</p>
+      <div class="zones" id="zones"></div>
+    </div>
+    <div class="card panel" id="panel"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var DEPTS=["Dirección","Ventas","Logística","IT","RRHH"];
+  var DCOLOR={ "Dirección":"#b07410","Ventas":"#2f6fed","Logística":"#0e8f9c","IT":"#8457d6","RRHH":"#e0702b" };
+
+  // recurso: group = grupo Global que da acceso; dl = grupo Domain Local que tiene el permiso
+  var RES=[
+    {id:"pub",   name:"Carpeta Pública",           group:"*",              dl:null},
+    {id:"sales", name:"Carpeta Ventas",            group:"G_Ventas_Users", dl:"DL_Ventas_Modify"},
+    {id:"salesb",name:"Presupuestos Ventas",       group:"G_Ventas_Mgrs",  dl:"DL_VentasPresup_Modify"},
+    {id:"logi",  name:"Carpeta Logística",         group:"G_Logi_Users",   dl:"DL_Logi_Modify"},
+    {id:"logib", name:"Planificación Logística",   group:"G_Logi_Mgrs",    dl:"DL_LogiPlan_Modify"},
+    {id:"it",    name:"Carpeta IT",                group:"G_IT_Users",     dl:"DL_IT_FullControl"},
+    {id:"hr",    name:"Expedientes RRHH",          group:"G_RRHH_Users",   dl:"DL_RRHH_Modify"},
+    {id:"fin",   name:"Finanzas (Dirección)",      group:"G_Finanzas",     dl:"DL_Finanzas_Modify"}
+  ];
+
+  // deleg: "none" | "dept" (su propio depto) | "company" (toda la empresa)
+  var PPL=[
+    {id:"jan",  name:"Jan Kowalski",       role:"CEO",            dept:"Dirección", groups:["G_Finanzas"],                deleg:"none"},
+    {id:"anna", name:"Anna Nowak",         role:"CFO",            dept:"Dirección", groups:["G_Finanzas"],                deleg:"none"},
+    {id:"marek",name:"Marek Lewandowski",  role:"Manager Ventas", dept:"Ventas",    groups:["G_Ventas_Users","G_Ventas_Mgrs"], deleg:"dept"},
+    {id:"agn",  name:"Agnieszka Zielinska",role:"Comercial",      dept:"Ventas",    groups:["G_Ventas_Users"],            deleg:"none"},
+    {id:"pawel",name:"Pawel Szymanski",    role:"Manager Logíst.",dept:"Logística", groups:["G_Logi_Users","G_Logi_Mgrs"],deleg:"dept"},
+    {id:"rob",  name:"Robert Dabrowski",   role:"Operario",       dept:"Logística", groups:["G_Logi_Users"],              deleg:"none"},
+    {id:"piotr",name:"Piotr Wisniewski",   role:"IT Manager",     dept:"IT",        groups:["G_IT_Users"],                deleg:"company"},
+    {id:"kat",  name:"Katarzyna Wojcik",   role:"IT (Helpdesk)",  dept:"IT",        groups:["G_IT_Users"],                deleg:"company"},
+    {id:"magda",name:"Magdalena Kaminska", role:"Manager RRHH",   dept:"RRHH",      groups:["G_RRHH_Users"],              deleg:"none"}
+  ];
+  var byId={}; PPL.forEach(function(p){byId[p.id]=p;});
+  function initials(n){var a=n.split(" ");return (a[0][0]+(a[1]?a[1][0]:"")).toUpperCase();}
+
+  function accessible(p){ return RES.filter(function(r){ return r.group==="*" || p.groups.indexOf(r.group)>=0; }); }
+  function authTargets(p){
+    if(p.deleg==="company") return PPL.filter(function(q){return q.id!==p.id;});
+    if(p.deleg==="dept")    return PPL.filter(function(q){return q.dept===p.dept && q.id!==p.id;});
+    return [];
+  }
+
+  // ---- render mapa ----
+  var zonesEl=document.getElementById("zones"), personEl={};
+  DEPTS.forEach(function(d){
+    var z=document.createElement("div"); z.className="zone";
+    z.innerHTML='<h3 style="color:'+DCOLOR[d]+'">'+d+'</h3>';
+    var ppl=document.createElement("div"); ppl.className="ppl";
+    PPL.filter(function(p){return p.dept===d;}).forEach(function(p){
+      var el=document.createElement("div"); el.className="person dimA dimB"; el.tabIndex=0; el.setAttribute("role","button");
+      el.innerHTML=
+        '<span class="av" style="background:'+DCOLOR[d]+'">'+initials(p.name)+'</span>'+
+        '<span class="meta"><span class="nm">'+p.name+'</span><span class="ro">'+p.role+'</span></span>'+
+        '<span class="badge">puede gestionar</span>';
+      el.addEventListener("click",function(){select(p.id);});
+      el.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();select(p.id);}});
+      personEl[p.id]=el; ppl.appendChild(el);
+    });
+    z.appendChild(ppl); zonesEl.appendChild(z);
+  });
+
+  // ---- panel ----
+  var panel=document.getElementById("panel"), selId=null;
+  function chainFor(p,r){
+    var parts=['<span class="seg p">'+p.name.split(" ")[0]+'</span>','<span class="ar">→</span>'];
+    if(r.group==="*"){ parts.push('<span class="seg">Domain Users</span>','<span class="ar">→</span>','<span class="seg r">'+r.name+'</span>'); }
+    else { parts.push('<span class="seg">'+r.group+'</span>','<span class="ar">→</span>','<span class="seg">'+r.dl+'</span>','<span class="ar">→</span>','<span class="seg r">'+r.name+'</span>'); }
+    return '<div class="chain">'+parts.join("")+'</div>';
+  }
+
+  function select(id){
+    selId=id; var p=byId[id];
+    Object.keys(personEl).forEach(function(k){ personEl[k].classList.remove("sel","authed"); });
+    personEl[id].classList.add("sel");
+    var targets=authTargets(p); var tset={}; targets.forEach(function(t){tset[t.id]=1; personEl[t.id].classList.add("authed");});
+
+    var acc=accessible(p), accIds={}; acc.forEach(function(r){accIds[r.id]=1;});
+
+    // ----- construir panel -----
+    var h='<div class="phead">'+
+      '<span class="av" style="background:'+DCOLOR[p.dept]+'">'+initials(p.name)+'</span>'+
+      '<span><span class="nm">'+p.name+'</span><br><span class="ro">'+p.role+'</span>'+
+      '<br><span class="deptpill">OU='+p.dept+'</span></span></div>';
+
+    // BLOQUE A
+    h+='<div class="block A"><div class="bh"><span class="sw" style="background:var(--a)"></span>Poder A · Acceso a recursos</div>'+
+       '<div class="bnote">Vía grupos (AGDLP). Verde = puede abrirlo.</div>';
+    RES.forEach(function(r){
+      var ok=accIds[r.id];
+      h+='<div class="res '+(ok?"":"no")+'"><span class="ico">'+(ok?"✅":"🔒")+'</span><span class="rn">'+r.name+'</span></div>';
+    });
+    h+='<div class="chains">';
+    acc.filter(function(r){return r.group!=="*";}).forEach(function(r){ h+=chainFor(p,r); });
+    h+='</div></div>';
+
+    // BLOQUE B
+    var scopeTxt = p.deleg==="company" ? 'toda la empresa (IT/Helpdesk)'
+                 : p.deleg==="dept"    ? 'solo su departamento → <span class="scope">OU='+p.dept+'</span>'
+                 : 'nadie';
+    h+='<div class="block B"><div class="bh"><span class="sw" style="background:var(--b)"></span>Poder B · Autoridad sobre personas</div>'+
+       '<div class="bnote">Vía delegación sobre una OU (resetear contraseñas, gestionar cuentas).</div>';
+    if(p.deleg==="none"){
+      h+='<p class="authtxt empty">No administra a nadie. Ser "manager" o "CEO" <b>no</b> da autoridad por sí solo — hay que delegarla. (Jan ve Finanzas, pero no gestiona cuentas.)</p>';
+    } else {
+      h+='<p class="authtxt">Puede resetear contraseñas / gestionar cuentas de: <b>'+scopeTxt+'</b>.</p>';
+      h+='<p class="authtxt" style="margin-top:.4rem">Personas a su alcance: <b>'+targets.length+'</b> '+
+         '('+targets.map(function(t){return t.name.split(" ")[0];}).join(", ")+').</p>';
+      if(p.deleg==="dept"){
+        var otros=PPL.filter(function(q){return q.dept!==p.dept;}).length;
+        h+='<p class="authtxt" style="margin-top:.4rem;color:var(--muted)">❌ NO puede tocar a los '+otros+' de otros departamentos: están en otras OUs, fuera de su delegación.</p>';
+      }
+    }
+    h+='</div>';
+
+    // enseñanza
+    h+='<div class="teach"><b>La idea:</b> los <b>grupos</b> dan acceso a <b>cosas</b> (A). La <b>delegación sobre la OU</b> da autoridad sobre <b>personas</b> (B), y se corta en la frontera del departamento. En un ataque, el poder B (ACLs sobre OUs/usuarios) es lo que <b>BloodHound</b> mapea para encadenar rutas hasta Domain Admin.</div>';
+
+    panel.innerHTML=h;
+  }
+
+  // ---- modos ----
+  var modeBtns=document.querySelectorAll(".modes button");
+  function setMode(m){
+    document.body.classList.remove("mode-a","mode-b","mode-both");
+    document.body.classList.add("mode-"+m);
+    modeBtns.forEach(function(b){ b.classList.toggle("on",b.dataset.mode===m); });
+    var hint=document.getElementById("maphint");
+    hint.innerHTML = m==="b" ? 'Modo <b style="color:var(--b)">Autoridad</b>: en verde, las personas que el seleccionado puede gestionar. Lo demás, atenuado.'
+                   : m==="a" ? 'Modo <b style="color:var(--a)">Recursos</b>: mira el panel de la derecha — a qué carpetas accede y por qué (AGDLP).'
+                   : 'Pulsa una persona. Verás su acceso a recursos (A, panel) y a quién manda (B, halos verdes).';
+    if(selId) select(selId);
+  }
+  modeBtns.forEach(function(b){ b.addEventListener("click",function(){setMode(b.dataset.mode);}); });
+
+  // ---- estado inicial: Marek (manager de Ventas), el caso que mejor lo enseña ----
+  setMode("both");
+  select("marek");
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+
+</body>
+</html>

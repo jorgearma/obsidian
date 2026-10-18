@@ -26,7 +26,7 @@ Ctrl + b  d            # salir sin cerrar (clave)
 
 ```plaintext
 Ctrl + b  %   # dividir vertical
-Ctrl + b  "   # dividir horizontal
+Ctrl + b  " ****  # dividir horizontal
 ```
 
 👉 Esto demuestra multitarea real.
