@@ -1,7 +1,7 @@
 # DNS en Active Directory
 
 > **Qué es esto:** cómo funciona DNS dentro de AD y por qué para un atacante es (1) la huella para identificar el DC, (2) una vía de enumeración de la red interna, y (3) un requisito técnico sin el cual Kerberos no funciona.
-> **Conecta con:** [[montar-lab-ad]] · [[reconocimiento-dns-pentesting]] · [[metodologia]]
+> **Conecta con:** [[sacar-nombre-de-dominio]] · [[montar-lab-ad]] · [[reconocimiento-dns-pentesting]] · [[metodologia]]
 
 **Idea en una frase:** en AD, DNS no solo traduce nombres a IPs — **resuelve servicios**. Los clientes preguntan a DNS *"¿quién hace de DC aquí?"* antes de autenticarse. Por eso **el DNS casi siempre vive en el propio DC**.
 

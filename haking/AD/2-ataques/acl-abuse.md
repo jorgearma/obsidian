@@ -1,7 +1,7 @@
 # ACL Abuse — encadenar permisos hasta Domain Admin
 
 > **En una frase:** en AD un permiso puede ser **poder SOBRE otra cuenta** (resetear su pass, controlarla). Si controlas una cuenta, **te conviertes en ella** y ganas SUS poderes; si uno de esos poderes es controlar a alguien más importante, **saltas** → y encadenando saltos llegas a Domain Admin. BloodHound dibuja esa ruta.
-> Relacionado: [[kerberos-kdc]] · [[kerberoasting]] · [[asrep-roasting]] · [[agdlp-y-bloodhound]] · [[montar-lab-ad]]
+> Relacionado: [[kerberos-kdc]] · [[kerberoasting]] · [[asrep-roasting]] · [[bloodhound]] · [[agdlp-y-bloodhound]] · [[montar-lab-ad]]
 
 ---
 
@@ -25,6 +25,21 @@ Tomar una cuenta **no es el premio** — es ganar sus permisos, que son el **bil
 | **WriteDacl** | Reescribir su ACL | Te auto-concedes GenericAll |
 | **WriteOwner** | Hacerte **dueño** del objeto | Como dueño, te das los permisos que quieras |
 | **AddMember** (sobre grupo) | Añadir miembros | Te metes tú en un grupo privilegiado |
+
+## Todo es un *principal* (la idea que lo unifica)
+> **El clic:** no pienses en "usuarios" vs "cuentas de servicio" vs "grupos" vs "equipos". Piensa en **principals de seguridad**: todo lo que puede **autenticarse y tener permisos**, cada uno con su **SID**. El ACL abuse funciona sobre **cualquiera** de ellos — solo mira *qué poder tiene ese principal*, no de qué tipo es.
+
+Son principals: **usuarios · cuentas de servicio · grupos · y los equipos** (las cuentas `MAQUINA$`, ej. `DC01$`, `CL01$`).
+
+Consecuencia directa: una **cuenta de servicio es un User normal con un SPN colgado**. Si al kerberoastearla (ver [[kerberoasting]]) consigo su pass y BloodHound me enseña que tiene `GenericAll`/`WriteDacl`/`AddMember` sobre algo, la uso como **siguiente eslabón de la cadena ACL, exactamente igual que un usuario**. La mecánica no distingue.
+
+```cypher
+// ¿qué puede hacer la cuenta de servicio que acabo de caer?
+MATCH (u:User)-[r]->(n) WHERE toLower(u.name) CONTAINS 'svc_sql' RETURN u, r, n
+```
+Flujo: la marco **Owned** en BloodHound → miro sus flechas salientes → si hay poder, hay salto. Da igual que la flecha salga de `piotr`, de `svc_sql` o de `DC01$`.
+
+> **A dónde lleva esta idea:** las cuentas de **equipo** también son principals con poderes. Comprometer una máquina y usar SU cuenta para suplantar a un admin es la base de **RBCD** (Resource-Based Constrained Delegation) — terreno CRTP, pero la semilla es esta misma: *todo es un principal, y si tiene poder, se abusa*.
 
 ## Por qué es un FALLO (no algo normal)
 - Un empleado normal **no debería** poder resetear a otro (eso es del Help Desk).

@@ -1,7 +1,7 @@
 # Kerberos y el KDC — TGT → TGS
 
 > **En una frase:** demuestras quién eres UNA vez (login) y recibes una **pulsera (TGT)**; luego, por cada servicio, cambias la pulsera por un **ticket (TGS)** que presentas al recurso. Todo lo gestiona el **KDC**, que vive en el DC.
-> Relacionado: [[ldap]] · [[agdlp]] · [[dns-en-ad]] · [[montar-lab-ad]]
+> Relacionado: [[ldap]] · [[agdlp-y-bloodhound]] · [[dns-en-ad]] · [[montar-lab-ad]]
 
 ---
 

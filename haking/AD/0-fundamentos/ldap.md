@@ -1,9 +1,9 @@
 # LDAP — la guía telefónica de Active Directory
 
 > **En una frase:** LDAP = la **base de datos de QUIÉN existe** en el dominio (usuarios, grupos, equipos, OUs) **+ el idioma para consultarla**. Guarda **quién SON** y **qué TIENEN**, NO lo que hacen.
-> Relacionado: [[kerberos-kdc]] · [[agdlp]] · [[dns-en-ad]] · [[montar-lab-ad]]
+> Relacionado: [[kerberos-kdc]] · [[agdlp-y-bloodhound]] · [[dns-en-ad]] · [[montar-lab-ad]]
 >
-> 🌳 **Versión visual interactiva:** abre el archivo `ldap-arbol.html` (en esta misma carpeta `AD/`) con doble clic en el navegador → árbol navegable + recorrido "la lógica en 3 niveles" + el DN de cada nodo en vivo. Funciona sin conexión.
+> 🌳 **Versión visual interactiva:** abre el archivo `ldap-arbol.html` (en `AD/lab-nordwind/`) con doble clic en el navegador → árbol navegable + recorrido "la lógica en 3 niveles" + el DN de cada nodo en vivo. Funciona sin conexión.
 
 ---
 
@@ -165,7 +165,7 @@ ldapsearch -x -H ldap://192.168.10.10 \
 - **LDAP** responde el "quién/qué" (identidades y estructura).
 - **KDC** responde el "puedes entrar" (tickets).
 - **DNS** responde el "dónde está el DC".
-- Los **permisos** (quién accede a qué) se guardan como relaciones en LDAP, organizadas con [[agdlp]]. **BloodHound lee LDAP** para dibujar las rutas de ataque.
+- Los **permisos** (quién accede a qué) se guardan como relaciones en LDAP, organizadas con [[agdlp-y-bloodhound]]. **BloodHound lee LDAP** para dibujar las rutas de ataque.
 
 ---
 

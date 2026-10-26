@@ -34,6 +34,7 @@ Contexto: aprendizaje personal, CTFs, máquinas de práctica.
 - [[notas]] — pendiente: mejorar script nmap con SMB scripts, DNS recon
 
 ### Web
+- [[web enumeracion/foothold-reconocimiento]] — **hoja de reconocimiento de footholds** (sigue el dato: señal → vector → test)
 - [[web enumeracion/enumeracion web]] — proceso general
 - [[web enumeracion/enumer]] — comandos rápidos
 - [[web enumeracion/login]] — ataques a login
