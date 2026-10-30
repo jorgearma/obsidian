@@ -17,7 +17,7 @@ Empieza por el índice conceptual y baja:
 - [[dns-en-ad]] — por qué AD depende del DNS, registros SRV, AXFR
 - [[agdlp-y-bloodhound]] — cómo se anidan los grupos y por qué importa al atacante
 - [[trusts]] — confianza entre dominios/bosques
-- [[completar-el-dc]] — NT hash · ACL/ACE/DACL · NTDS.dit · Golden Ticket · DCSync
+- [[fundamentos-del-dc]] — NT hash · ACL/ACE/DACL · NTDS.dit · Golden Ticket · DCSync
 
 ## 1 · Enumeración
 
@@ -33,8 +33,10 @@ Empieza por el índice conceptual y baja:
 
 ## 🧰 Tools de AD (`AD/tools/`)
 
+- [[rpcclient]] — enumeración (y abuso) de AD por MS-RPC · sesión nula · `setuserinfo2`
 - [[impacket]] — suite de ataque AD en Python (GetNPUsers, GetUserSPNs, secretsdump, psexec...)
 - [[netexec]] — barrido y validación de credenciales en AD/SMB (el `(Pwn3d!)`)
+- [[evil-winrm]] — shell remota por WinRM (5985) · upload/download · Pass-the-Hash (`-H`)
 - Cracking → [[hashcat]] vive en `tools/` general (es transversal: AD + Linux + web)
 
 ## 🧪 Lab Nordwind Logistics
@@ -60,4 +62,4 @@ Es DC → sacar-nombre-de-dominio → enumeracion-ad-sin-credenciales (users.txt
 - [ ] `sharphound-y-edges` — detalle de los edges de BloodHound (referenciada en [[agdlp-y-bloodhound]])
 - [ ] Windows privesc (WinPEAS, SeImpersonate, servicios escriturables) — aún no cubierto
 - [ ] Pass-the-Hash / Pass-the-Ticket — nota propia
-- [ ] DCSync como nota independiente (hoy vive dentro de [[completar-el-dc]])
+- [ ] DCSync como nota independiente (hoy vive dentro de [[fundamentos-del-dc]])

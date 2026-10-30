@@ -82,7 +82,7 @@ Por qué un usuario con el permiso adecuado puede **pedirle al DC que le repliqu
 
 **Qué desbloquea:** el golpe final de casi todo AD. Es "hacerse pasar por un Domain Controller".
 
-Nota futura: [[completar-el-dc]]
+Nota futura: [[fundamentos-del-dc]]
 
 ---
 

@@ -1,4 +1,4 @@
-# 🧰 Impacket — Suite de ataque AD (Python)
+con rp# 🧰 Impacket — Suite de ataque AD (Python)
 
 > Colección de scripts Python que **hablan directamente los protocolos de Windows/AD**
 > (Kerberos, SMB, LDAP, MSRPC) desde Kali. Es la navaja suiza del set de AD en OSCP.
