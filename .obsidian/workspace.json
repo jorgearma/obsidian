@@ -11,15 +11,17 @@
             "id": "43140b4789adf609",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "haking/AD/tools/evil-winrm.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
+                "file": "diagrama.canvas",
+                "viewState": {
+                  "x": -567.8821583560201,
+                  "y": -1004.0102420928743,
+                  "zoom": -1.1353505056349138
+                }
               },
-              "icon": "lucide-file",
-              "title": "evil-winrm"
+              "icon": "lucide-layout-dashboard",
+              "title": "diagrama"
             }
           }
         ]
@@ -81,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214.5
+    "width": 214.5,
+    "collapsed": true
   },
   "right": {
     "id": "9725ac3df8109034",
@@ -184,9 +187,16 @@
   },
   "active": "43140b4789adf609",
   "lastOpenFiles": [
+    "importante.md",
+    "notas.md",
+    "para estudiar ciber seguridad.md",
+    "Untitled.base",
+    "Untitled.md",
+    "Untitled 1.base",
+    "haking/AD/2-ataques/bloodhound.md",
+    "haking/AD/tools/evil-winrm.md",
     "haking/AD/tools/netexec.md",
     "haking/AD/tools/impacket.md",
-    "haking/AD/tools/evil-winrm.md",
     "haking/AD/tools/rpcclient.md",
     "haking/AD/_MOC-AD.md.tmp.38844.2f737c824650",
     "haking/AD/tools/evil-winrm.md.tmp.38844.6af608ee18b9",
@@ -209,16 +219,10 @@
     "haking/MOC-haking.md",
     "haking/pivoting.md",
     "haking/reconocimiento-dns-pentesting.md",
-    "haking/tareas.md",
-    "haking/transferencia de archivos.md",
-    "haking/upgrade shell.md",
-    "haking/virtualbox-labs-config.md",
     "haking/AD/_MOC-AD.md.tmp.8368.176eef04d142",
     "haking/AD/tools",
     "haking/AD/_MOC-AD.md.tmp.8368.7a25908349cb",
     "haking/AD/1-enumeracion/enumeracion-ad-sin-credenciales.md.tmp.8368.6a9c051ffef5",
-    "haking/AD/lab-nordwind/permisos-corp.html",
-    "haking/AD/lab-nordwind/ldap-arbol.html",
     "diagrama.canvas",
     "imagenes/webp.jpg",
     "imagenes/images/pasted image 0 8.png",
