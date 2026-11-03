@@ -39,6 +39,7 @@ Contexto: aprendizaje personal, CTFs, máquinas de práctica.
 - [[web enumeracion/enumer]] — comandos rápidos
 - [[web enumeracion/login]] — ataques a login
 - [[web enumeracion/DNS/reconocimiento-dns-pentesting]] — subfinder, amass, dig
+- [[web enumeracion/analisis-js-cliente]] — **leer el JS del cliente** (rutas ocultas, CSP, minificado) + localStorage + controles del lado cliente
 
 ### Herramientas web
 - [[web enumeracion/tools web enum/curl]]
